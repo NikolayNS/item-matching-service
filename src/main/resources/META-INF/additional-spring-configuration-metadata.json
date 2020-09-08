@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "magintegrator.jobengine.thread-pool-size",
+      "type": "java.lang.String",
+      "description": "Description for magintegrator.jobengine.thread-pool-size."
+    },
+    {
+      "name": "magintegrator.jobengine.cache-size",
+      "type": "java.lang.String",
+      "description": "Description for magintegrator.jobengine.cache-size."
+    },
+    {
+      "name": "magintegrator.jobengine.thread-name-prefix",
+      "type": "java.lang.String",
+      "description": "Description for magintegrator.jobengine.thread-name-prefix."
+    },
+    {
+      "name": "magintegrator.jobengine.batch-size",
+      "type": "java.lang.String",
+      "description": "Description for magintegrator.jobengine.batch-size."
+    }
+  ] }
