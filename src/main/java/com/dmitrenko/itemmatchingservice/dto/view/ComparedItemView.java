@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class ComparedItemsView {
+public class ComparedItemView {
 	private String barcode;
 	private String name;
 }

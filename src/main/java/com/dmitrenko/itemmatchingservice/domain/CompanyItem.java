@@ -10,6 +10,9 @@ import lombok.experimental.Accessors;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity(name = "COMPANY_ITEM")
@@ -29,6 +32,10 @@ public class CompanyItem extends BaseEntity{
 
 	@Column(name = "NAME")
 	private String name;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PRODUCT_GROUP_ID")
+	private ProductGroup productGroup;
 
 	public CompanyItem(Long id) {
 		this.id = id;

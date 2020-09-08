@@ -1,4 +1,4 @@
-package com.dmitrenko.itemmatchingservice.dto.request;
+package com.dmitrenko.itemmatchingservice.dto.request.delete;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +11,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class CompetitorItem {
-	private Long productGroup;
-	private String barcode;
-	private String name;
+public class ProductGroupDeleteRequest {
+	private Long id;
 }

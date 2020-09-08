@@ -1,4 +1,4 @@
-package com.dmitrenko.itemmatchingservice.dto.request;
+package com.dmitrenko.itemmatchingservice.dto.request.update;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +11,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class CompetitorItem {
-	private Long productGroup;
-	private String barcode;
+public class BrandUpdateRequest {
+	private Long id;
 	private String name;
 }

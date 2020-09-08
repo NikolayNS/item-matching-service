@@ -12,42 +12,39 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
-@Entity(name = "REPLACEMENT_WORD")
+@Entity(name = "BRAND")
 @Getter
 @Setter
 @Accessors(chain = true)
 @NoArgsConstructor
 @ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@AttributeOverride(name = "id", column = @Column(name = "REPLACEMENT_WORD_ID"))
-public class ReplacementWord extends BaseEntity {
+@AttributeOverride(name = "id", column = @Column(name = "BRAND_ID"))
+public class Brand extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "REPLACEABLE")
-	private String replaceable;
+	@Column(name = "NAME")
+	private String name;
 
-	@Column(name = "REPLACEMENT")
-	private String replacement;
-
-	public ReplacementWord(Long id) {
+	public Brand(Long id) {
 		this.id = id;
 	}
 
 	@Override
-	public ReplacementWord setId(Long id) {
+	public Brand setId(Long id) {
 		this.id = id;
 		return this;
 	}
 
 	@Override
-	public ReplacementWord setCreatedDateTime(LocalDateTime createdDateTime) {
+	public Brand setCreatedDateTime(LocalDateTime createdDateTime) {
 		this.createdDateTime = createdDateTime;
 		return this;
 	}
 
 	@Override
-	public ReplacementWord setModifiedDateTime(LocalDateTime modifiedDateTime) {
+	public Brand setModifiedDateTime(LocalDateTime modifiedDateTime) {
 		this.modifiedDateTime = modifiedDateTime;
 		return this;
 	}
