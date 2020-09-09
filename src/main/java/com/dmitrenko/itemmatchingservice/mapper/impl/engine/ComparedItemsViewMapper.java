@@ -1,6 +1,6 @@
-package com.dmitrenko.itemmatchingservice.mapper.impl;
+package com.dmitrenko.itemmatchingservice.mapper.impl.engine;
 
-import com.dmitrenko.itemmatchingservice.dto.request.CompetitorItem;
+import com.dmitrenko.itemmatchingservice.dto.request.engine.CompetitorItem;
 import com.dmitrenko.itemmatchingservice.dto.view.ComparedItemView;
 import com.dmitrenko.itemmatchingservice.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +12,8 @@ public class ComparedItemsViewMapper implements Mapper<ComparedItemView, Competi
 
 	@Override
 	public ComparedItemView from(CompetitorItem source) {
-		return null;
+		return new ComparedItemView()
+			.setName(source.getName() == null ? null : source.getName())
+			.setBarcode(source.getBarcode() == null ? null : source.getBarcode());
 	}
 }

@@ -13,7 +13,7 @@ public class ProductGroupMapper implements Mapper<ProductGroup, ProductGroupAddR
 	@Override
 	public ProductGroup from(ProductGroupAddRequest source) {
 		return new ProductGroup()
-			.setGroupId(source.getGroupId())
+			.setGroupIndex(source.getGroupIndex())
 			.setName(source.getName());
 	}
 }

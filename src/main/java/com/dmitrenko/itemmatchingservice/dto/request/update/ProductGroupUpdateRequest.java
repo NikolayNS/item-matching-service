@@ -13,6 +13,6 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class ProductGroupUpdateRequest {
 	private Long id;
-	private Long groupId;
+	private Long groupIndex;
 	private String name;
 }

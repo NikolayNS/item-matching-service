@@ -1,9 +1,9 @@
 package com.dmitrenko.itemmatchingservice.engine.impl;
 
-import com.dmitrenko.itemmatchingservice.dto.request.ItemMatchingRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.engine.ItemMatchingRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ItemMatchingResponse;
 import com.dmitrenko.itemmatchingservice.engine.ItemMatchingEngine;
-import com.dmitrenko.itemmatchingservice.mapper.impl.ComparedItemsViewMapper;
+import com.dmitrenko.itemmatchingservice.mapper.impl.engine.ComparedItemsViewMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;

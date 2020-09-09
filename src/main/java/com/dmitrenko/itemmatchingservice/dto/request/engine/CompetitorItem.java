@@ -1,4 +1,4 @@
-package com.dmitrenko.itemmatchingservice.dto.request;
+package com.dmitrenko.itemmatchingservice.dto.request.engine;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,6 @@ import lombok.experimental.Accessors;
 @ToString
 @NoArgsConstructor
 public class CompetitorItem {
-	private Long productGroup;
 	private String barcode;
 	private String name;
 }

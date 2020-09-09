@@ -12,6 +12,6 @@ import lombok.experimental.Accessors;
 @ToString
 @NoArgsConstructor
 public class ProductGroupResponse {
-	private Long productId;
+	private Long groupIndex;
 	private String name;
 }

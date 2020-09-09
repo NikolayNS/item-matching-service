@@ -28,8 +28,8 @@ public class ProductGroup extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "GROUP_ID")
-	private Long groupId;
+	@Column(name = "GROUP_INDEX")
+	private Long groupIndex;
 
 	@Column(name = "NAME")
 	private String name;

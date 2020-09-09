@@ -13,7 +13,7 @@ public class ProductGroupMerger implements Merger<ProductGroup, ProductGroupUpda
 	@Override
 	public ProductGroup merge(ProductGroup target, ProductGroupUpdateRequest source) {
 		return target
-			.setGroupId(source.getGroupId())
+			.setGroupIndex(source.getGroupIndex())
 			.setName(source.getName());
 	}
 }

@@ -1,6 +1,6 @@
 package com.dmitrenko.itemmatchingservice.controller;
 
-import com.dmitrenko.itemmatchingservice.dto.request.ItemMatchingRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.engine.ItemMatchingRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ItemMatchingResponse;
 import com.dmitrenko.itemmatchingservice.dto.response.ResponseObject;
 import com.dmitrenko.itemmatchingservice.engine.ItemMatchingEngine;
@@ -24,7 +24,7 @@ public class EngineController {
 
 	public static final String FIND_MATCHING_ITEMS = "/api/v1/engine/find-matching-items";
 
-	@ApiOperation("Создание нового каталога проектов")
+	@ApiOperation("Find matching items")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = FIND_MATCHING_ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	public ResponseObject<ItemMatchingResponse> findMatchingItems(@RequestBody ItemMatchingRequest request) {
