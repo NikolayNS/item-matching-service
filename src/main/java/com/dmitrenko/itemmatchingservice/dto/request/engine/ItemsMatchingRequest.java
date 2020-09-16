@@ -14,7 +14,7 @@ import java.util.List;
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class ItemMatchingRequest {
+public class ItemsMatchingRequest {
 	private List<Long> productGroups = new LinkedList<>();
 	private List<CompetitorItem> competitorItems = new LinkedList<>();
 }

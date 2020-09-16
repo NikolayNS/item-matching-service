@@ -89,8 +89,7 @@ public class BrandDomainServiceImpl implements BrandDomainService {
 	}
 
 	private void checkEntityAlreadyExists(String name) {
-		if (isEntityExistByName(name))
-			throw new InvalidParametersException("Brand with name: " + name + " already exists.");
+		if (isEntityExistByName(name)) throw new InvalidParametersException("Brand with name: " + name + " already exists.");
 	}
 
 	private boolean isEntityExistByName(String name) {
@@ -98,8 +97,7 @@ public class BrandDomainServiceImpl implements BrandDomainService {
 	}
 
 	private void checkEntityExists(Long id) {
-		if (!isEntityExists(id))
-			throw new InvalidParametersException("Brand with id: " + id + " does not exists.");
+		if (!isEntityExists(id)) throw new InvalidParametersException("Brand with id: " + id + " does not exists.");
 	}
 
 	private boolean isEntityExists(Long id) {

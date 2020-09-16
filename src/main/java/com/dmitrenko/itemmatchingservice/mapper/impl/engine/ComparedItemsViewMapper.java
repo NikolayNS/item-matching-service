@@ -4,11 +4,14 @@ import com.dmitrenko.itemmatchingservice.dto.request.engine.CompetitorItem;
 import com.dmitrenko.itemmatchingservice.dto.view.ComparedItemView;
 import com.dmitrenko.itemmatchingservice.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class ComparedItemsViewMapper implements Mapper<ComparedItemView, CompetitorItem> {
+
+	private final ApplicationContext context;
 
 	@Override
 	public ComparedItemView from(CompetitorItem source) {

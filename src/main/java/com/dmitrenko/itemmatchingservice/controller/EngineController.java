@@ -1,9 +1,10 @@
 package com.dmitrenko.itemmatchingservice.controller;
 
-import com.dmitrenko.itemmatchingservice.dto.request.engine.ItemMatchingRequest;
-import com.dmitrenko.itemmatchingservice.dto.response.ItemMatchingResponse;
+import com.dmitrenko.itemmatchingservice.dto.request.engine.ItemsMatchingRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.engine.TaskRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ResponseObject;
-import com.dmitrenko.itemmatchingservice.engine.ItemMatchingEngine;
+import com.dmitrenko.itemmatchingservice.dto.response.ResultResponse;
+import com.dmitrenko.itemmatchingservice.engine.Engine;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -20,19 +21,45 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Api(value = "Remote control of item matching service")
 public class EngineController {
 
-	private final ItemMatchingEngine engine;
+	private final Engine engine;
 
 	public static final String FIND_MATCHING_ITEMS = "/api/v1/engine/find-matching-items";
+	public static final String CHECK_TASK = "/api/v1/engine/check-task";
+	public static final String GET_RESULT = "/api/v1/engine/get-result";
 
 	@ApiOperation("Find matching items")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = FIND_MATCHING_ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	public ResponseObject<ItemMatchingResponse> findMatchingItems(@RequestBody ItemMatchingRequest request) {
+	public ResponseObject<Long> run(@RequestBody ItemsMatchingRequest request) {
 
-		return ResponseObject.<ItemMatchingResponse>builder()
+		return ResponseObject.<Long>builder()
 			.success(true)
 			.message("")
-			.data(engine.findMatchingItems(request))
+			.data(engine.run(request))
+			.build();
+	}
+
+	@ApiOperation("Find matching items")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = CHECK_TASK, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	public ResponseObject<Boolean> check(@RequestBody TaskRequest request) {
+
+		return ResponseObject.<Boolean>builder()
+			.success(true)
+			.message("")
+			.data(engine.progress(request))
+			.build();
+	}
+
+	@ApiOperation("Find matching items")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = GET_RESULT, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	public ResponseObject<ResultResponse> get(@RequestBody TaskRequest request) {
+
+		return ResponseObject.<ResultResponse>builder()
+			.success(true)
+			.message("")
+			.data(engine.get(request))
 			.build();
 	}
 }

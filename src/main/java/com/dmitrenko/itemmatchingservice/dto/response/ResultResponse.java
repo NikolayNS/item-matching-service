@@ -11,6 +11,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class ItemMatchingResponse {
+public class ResultResponse {
 
 }
