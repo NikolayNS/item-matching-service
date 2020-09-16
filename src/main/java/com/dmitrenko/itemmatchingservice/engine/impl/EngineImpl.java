@@ -53,9 +53,9 @@ public class EngineImpl implements Engine {
 	}
 
 	@Override
-	public void cancel(TaskRequest request) {
+	public boolean cancel(TaskRequest request) {
 		checkTask(request.getTaskId());
 
-
+		return false;
 	}
 }

@@ -12,5 +12,5 @@ public interface Engine {
 
 	ResultResponse get(TaskRequest request);
 
-	void cancel(TaskRequest request);
+	boolean cancel(TaskRequest request);
 }

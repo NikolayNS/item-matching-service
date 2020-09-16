@@ -24,8 +24,9 @@ public class EngineController {
 	private final Engine engine;
 
 	public static final String FIND_MATCHING_ITEMS = "/api/v1/engine/find-matching-items";
-	public static final String CHECK_TASK = "/api/v1/engine/check-task";
+	public static final String CHECK_PROGRESS = "/api/v1/engine/check-progress";
 	public static final String GET_RESULT = "/api/v1/engine/get-result";
+	public static final String CANCEL_TASK = "/api/v1/engine/cancel-task";
 
 	@ApiOperation("Find matching items")
 	@ResponseStatus(HttpStatus.OK)
@@ -39,9 +40,9 @@ public class EngineController {
 			.build();
 	}
 
-	@ApiOperation("Find matching items")
+	@ApiOperation("Check progress")
 	@ResponseStatus(HttpStatus.OK)
-	@PostMapping(value = CHECK_TASK, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	@PostMapping(value = CHECK_PROGRESS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	public ResponseObject<Boolean> check(@RequestBody TaskRequest request) {
 
 		return ResponseObject.<Boolean>builder()
@@ -51,7 +52,7 @@ public class EngineController {
 			.build();
 	}
 
-	@ApiOperation("Find matching items")
+	@ApiOperation("Get result")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = GET_RESULT, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	public ResponseObject<ResultResponse> get(@RequestBody TaskRequest request) {
@@ -60,6 +61,18 @@ public class EngineController {
 			.success(true)
 			.message("")
 			.data(engine.get(request))
+			.build();
+	}
+
+	@ApiOperation("Cancel task")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = CANCEL_TASK, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	public ResponseObject<Boolean> cancel(@RequestBody TaskRequest request) {
+
+		return ResponseObject.<Boolean>builder()
+			.success(true)
+			.message("Task with id " + request.getTaskId() + " was canceled")
+			.data(engine.cancel(request))
 			.build();
 	}
 }
