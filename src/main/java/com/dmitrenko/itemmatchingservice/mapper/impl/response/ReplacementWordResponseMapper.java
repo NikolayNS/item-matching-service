@@ -13,7 +13,10 @@ public class ReplacementWordResponseMapper implements Mapper<ReplacementWordResp
 	@Override
 	public ReplacementWordResponse from(ReplacementWord source) {
 		return new ReplacementWordResponse()
+			.setId(source.getId())
 			.setReplaceable(source.getReplaceable())
-			.setReplacement(source.getReplacement());
+			.setReplacement(source.getReplacement())
+			.setCreated(source.getCreatedDateTime())
+			.setModified(source.getModifiedDateTime());
 	}
 }

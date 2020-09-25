@@ -13,7 +13,10 @@ public class ProductGroupResponseMapper implements Mapper<ProductGroupResponse, 
 	@Override
 	public ProductGroupResponse from(ProductGroup source) {
 		return new ProductGroupResponse()
+			.setId(source.getId())
 			.setGroupIndex(source.getGroupIndex())
-			.setName(source.getName());
+			.setName(source.getName())
+			.setCreated(source.getCreatedDateTime())
+			.setModified(source.getModifiedDateTime());
 	}
 }

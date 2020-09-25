@@ -18,8 +18,11 @@ public class CompanyItemResponseMapper implements Mapper<CompanyItemResponse, Co
 		var productGroupResponseMapper = context.getBean(ProductGroupResponseMapper.class);
 
 		return new CompanyItemResponse()
+			.setId(source.getId())
 			.setBarcode(source.getBarcode())
 			.setName(source.getName())
-			.setProductGroup(productGroupResponseMapper.from(source.getProductGroup()));
+			.setProductGroup(productGroupResponseMapper.from(source.getProductGroup()))
+			.setCreated(source.getCreatedDateTime())
+			.setModified(source.getModifiedDateTime());
 	}
 }

@@ -13,6 +13,9 @@ public class BrandResponseMapper implements Mapper<BrandResponse, Brand> {
 	@Override
 	public BrandResponse from(Brand source) {
 		return new BrandResponse()
-			.setName(source.getName());
+			.setId(source.getId())
+			.setName(source.getName())
+			.setCreated(source.getCreatedDateTime())
+			.setModified(source.getModifiedDateTime());
 	}
 }
