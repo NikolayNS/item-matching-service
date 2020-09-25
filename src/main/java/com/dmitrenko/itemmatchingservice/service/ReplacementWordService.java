@@ -1,9 +1,9 @@
 package com.dmitrenko.itemmatchingservice.service;
 
-import com.dmitrenko.itemmatchingservice.dto.request.add.ReplacementWordAddRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.delete.ReplacementWordDeleteRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.get.ReplacementWordGetRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.update.ReplacementWordUpdateRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.replacementword.ReplacementWordAddRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.replacementword.ReplacementWordDeleteRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.replacementword.ReplacementWordGetRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.replacementword.ReplacementWordUpdateRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ReplacementWordResponse;
 
 import java.util.List;

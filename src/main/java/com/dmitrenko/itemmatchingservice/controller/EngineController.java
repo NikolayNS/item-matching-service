@@ -1,9 +1,10 @@
 package com.dmitrenko.itemmatchingservice.controller;
 
-import com.dmitrenko.itemmatchingservice.dto.request.engine.ItemsMatchingRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.engine.TaskAddRequest;
 import com.dmitrenko.itemmatchingservice.dto.request.engine.TaskRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ResponseObject;
 import com.dmitrenko.itemmatchingservice.dto.response.ResultResponse;
+import com.dmitrenko.itemmatchingservice.dto.response.TaskProgressResponse;
 import com.dmitrenko.itemmatchingservice.engine.Engine;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,29 +24,29 @@ public class EngineController {
 
 	private final Engine engine;
 
-	public static final String FIND_MATCHING_ITEMS = "/api/v1/engine/find-matching-items";
+	public static final String FIND_MATCHING_ITEMS = "/api/v1/engine/add-task";
 	public static final String CHECK_PROGRESS = "/api/v1/engine/check-progress";
 	public static final String GET_RESULT = "/api/v1/engine/get-result";
 	public static final String CANCEL_TASK = "/api/v1/engine/cancel-task";
 
-	@ApiOperation("Find matching items")
+	@ApiOperation("Add task to queue")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = FIND_MATCHING_ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	public ResponseObject<Long> run(@RequestBody ItemsMatchingRequest request) {
+	public ResponseObject<Long> add(@RequestBody TaskAddRequest request) {
 
 		return ResponseObject.<Long>builder()
 			.success(true)
 			.message("")
-			.data(engine.run(request))
+			.data(engine.add(request))
 			.build();
 	}
 
 	@ApiOperation("Check progress")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = CHECK_PROGRESS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	public ResponseObject<Boolean> check(@RequestBody TaskRequest request) {
+	public ResponseObject<TaskProgressResponse> check(@RequestBody TaskRequest request) {
 
-		return ResponseObject.<Boolean>builder()
+		return ResponseObject.<TaskProgressResponse>builder()
 			.success(true)
 			.message("")
 			.data(engine.progress(request))

@@ -14,5 +14,5 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class NgramView {
-	private List<Integer> grams;
+	private List<Long> grams;
 }

@@ -1,7 +1,7 @@
 package com.dmitrenko.itemmatchingservice.mapper.impl.domain;
 
 import com.dmitrenko.itemmatchingservice.domain.CompanyItem;
-import com.dmitrenko.itemmatchingservice.dto.request.add.CompanyItemAddRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.companyitem.CompanyItemAddRequest;
 import com.dmitrenko.itemmatchingservice.mapper.Mapper;
 import com.dmitrenko.itemmatchingservice.service.ProductGroupService;
 import lombok.RequiredArgsConstructor;

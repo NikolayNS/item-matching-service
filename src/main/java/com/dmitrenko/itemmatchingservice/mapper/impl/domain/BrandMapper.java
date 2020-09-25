@@ -1,7 +1,7 @@
 package com.dmitrenko.itemmatchingservice.mapper.impl.domain;
 
 import com.dmitrenko.itemmatchingservice.domain.Brand;
-import com.dmitrenko.itemmatchingservice.dto.request.add.BrandAddRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.brand.BrandAddRequest;
 import com.dmitrenko.itemmatchingservice.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

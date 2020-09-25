@@ -1,7 +1,7 @@
 package com.dmitrenko.itemmatchingservice.mapper.impl.update;
 
 import com.dmitrenko.itemmatchingservice.domain.CompanyItem;
-import com.dmitrenko.itemmatchingservice.dto.request.update.CompanyItemUpdateRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.companyitem.CompanyItemUpdateRequest;
 import com.dmitrenko.itemmatchingservice.mapper.Merger;
 import com.dmitrenko.itemmatchingservice.service.ProductGroupService;
 import lombok.RequiredArgsConstructor;

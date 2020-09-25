@@ -1,9 +1,9 @@
 package com.dmitrenko.itemmatchingservice.controller;
 
-import com.dmitrenko.itemmatchingservice.dto.request.add.ProductGroupAddRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.delete.ProductGroupDeleteRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.get.ProductGroupGetRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.update.ProductGroupUpdateRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.productgroup.ProductGroupAddRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.productgroup.ProductGroupDeleteRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.productgroup.ProductGroupGetRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.productgroup.ProductGroupUpdateRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ProductGroupResponse;
 import com.dmitrenko.itemmatchingservice.dto.response.ResponseList;
 import com.dmitrenko.itemmatchingservice.dto.response.ResponseObject;

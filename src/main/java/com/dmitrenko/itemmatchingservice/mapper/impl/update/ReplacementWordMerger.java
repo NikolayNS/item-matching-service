@@ -1,7 +1,7 @@
 package com.dmitrenko.itemmatchingservice.mapper.impl.update;
 
 import com.dmitrenko.itemmatchingservice.domain.ReplacementWord;
-import com.dmitrenko.itemmatchingservice.dto.request.update.ReplacementWordUpdateRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.replacementword.ReplacementWordUpdateRequest;
 import com.dmitrenko.itemmatchingservice.mapper.Merger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

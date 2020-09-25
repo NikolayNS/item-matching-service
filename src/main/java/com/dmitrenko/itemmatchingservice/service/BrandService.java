@@ -1,9 +1,9 @@
 package com.dmitrenko.itemmatchingservice.service;
 
-import com.dmitrenko.itemmatchingservice.dto.request.add.BrandAddRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.delete.BrandDeleteRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.get.BrandGetRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.update.BrandUpdateRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.brand.BrandAddRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.brand.BrandDeleteRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.brand.BrandGetRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.brand.BrandUpdateRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.BrandResponse;
 
 import java.util.List;

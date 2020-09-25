@@ -1,9 +1,9 @@
 package com.dmitrenko.itemmatchingservice.service.impl;
 
-import com.dmitrenko.itemmatchingservice.dto.request.add.CompanyItemAddRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.delete.CompanyItemDeleteRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.get.CompanyItemGetRequest;
-import com.dmitrenko.itemmatchingservice.dto.request.update.CompanyItemUpdateRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.companyitem.CompanyItemAddRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.companyitem.CompanyItemDeleteRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.companyitem.CompanyItemGetRequest;
+import com.dmitrenko.itemmatchingservice.dto.request.companyitem.CompanyItemUpdateRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.CompanyItemResponse;
 import com.dmitrenko.itemmatchingservice.service.CompanyItemService;
 import com.dmitrenko.itemmatchingservice.service.domain.CompanyItemDomainService;

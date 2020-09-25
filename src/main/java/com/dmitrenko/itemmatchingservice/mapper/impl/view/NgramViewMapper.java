@@ -22,10 +22,10 @@ public class NgramViewMapper implements Mapper<NgramView, String> {
 	@Override
 	public NgramView from(String source) {
 		return new NgramView()
-			.setGrams(getGrams(source));
+			.setGrams(source == null ? Collections.emptyList() : getGrams(source));
 	}
 
-	private List<Integer> getGrams(String source) {
+	private List<Long> getGrams(String source) {
 		List<Character> sourceChars = source.chars()
 			.mapToObj(c -> (char) c)
 			.collect(Collectors.toList());
@@ -49,7 +49,7 @@ public class NgramViewMapper implements Mapper<NgramView, String> {
 			}
 		}
 
-		List<Integer> grams = new LinkedList<>();
+		List<Long> grams = new LinkedList<>();
 
 		Collections.sort(grams);
 		return grams;
