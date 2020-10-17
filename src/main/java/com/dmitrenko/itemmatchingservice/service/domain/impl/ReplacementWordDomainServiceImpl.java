@@ -28,7 +28,7 @@ public class ReplacementWordDomainServiceImpl implements ReplacementWordDomainSe
 	@Override
 	@Transactional
 	public ReplacementWordResponse add(ReplacementWordAddRequest request) {
-		checkEntityAlreadyExists(request.getReplacement());
+		checkEntityAlreadyExists(request.getReplaceable());
 
 		var entityMapper = context.getBean(ReplacementWordMapper.class);
 		var responseMapper = context.getBean(ReplacementWordResponseMapper.class);
@@ -87,18 +87,18 @@ public class ReplacementWordDomainServiceImpl implements ReplacementWordDomainSe
 		repository.deleteAll();
 	}
 
-	private void checkEntityAlreadyExists(String name) {
-		if (isEntityExistByName(name))
-			throw new InvalidParametersException("Brand with name: " + name + " already exists.");
+	private void checkEntityAlreadyExists(String replaceable) {
+		if (isEntityExistByName(replaceable))
+			throw new InvalidParametersException("Replaceable word: " + replaceable + " already exists.");
 	}
 
-	private boolean isEntityExistByName(String replacement) {
-		return repository.existsByReplacement(replacement);
+	private boolean isEntityExistByName(String replaceable) {
+		return repository.existsByReplaceable(replaceable);
 	}
 
 	private void checkEntityExists(Long id) {
 		if (!isEntityExists(id))
-			throw new InvalidParametersException("Brand with id: " + id + " does not exists.");
+			throw new InvalidParametersException("Replacement word with id: " + id + " does not exists.");
 	}
 
 	private boolean isEntityExists(Long id) {

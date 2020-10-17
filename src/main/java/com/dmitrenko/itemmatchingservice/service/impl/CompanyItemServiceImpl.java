@@ -30,7 +30,7 @@ public class CompanyItemServiceImpl implements CompanyItemService {
 
 	@Override
 	public List<CompanyItemResponse> getAll() {
-		return getAll();
+		return domainService.getAll();
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.dmitrenko.itemmatchingservice.dto.response;
+package com.dmitrenko.itemmatchingservice.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +11,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class TaskProgressResponse {
-	private boolean isActive;
-	private Long expect;
-	private Long done;
+public class ResultGetRequest {
+	private Long id;
 }

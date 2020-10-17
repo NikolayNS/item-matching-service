@@ -90,12 +90,14 @@ public class ProductGroupDomainServiceImpl implements ProductGroupDomainService 
 
 	@Override
 	public ProductGroup getById(Long id) {
-		return null;
+		checkEntityExists(id);
+
+		return repository.getOne(id);
 	}
 
 	private void checkEntityAlreadyExists(String name) {
 		if (isEntityExistByName(name))
-			throw new InvalidParametersException("Brand with name: " + name + " already exists.");
+			throw new InvalidParametersException("Product group with name: " + name + " already exists.");
 	}
 
 	private boolean isEntityExistByName(String name) {
@@ -104,7 +106,7 @@ public class ProductGroupDomainServiceImpl implements ProductGroupDomainService 
 
 	private void checkEntityExists(Long id) {
 		if (!isEntityExists(id))
-			throw new InvalidParametersException("Brand with id: " + id + " does not exists.");
+			throw new InvalidParametersException("Product group with id: " + id + " does not exists.");
 	}
 
 	private boolean isEntityExists(Long id) {

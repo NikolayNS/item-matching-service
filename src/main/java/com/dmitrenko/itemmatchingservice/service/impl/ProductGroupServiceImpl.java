@@ -48,9 +48,4 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 	public void deleteAll() {
 		domainService.deleteAll();
 	}
-
-	@Override
-	public ProductGroup getById(Long id) {
-		return domainService.getById(id);
-	}
 }

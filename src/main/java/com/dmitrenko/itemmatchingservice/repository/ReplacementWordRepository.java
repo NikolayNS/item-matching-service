@@ -4,5 +4,5 @@ import com.dmitrenko.itemmatchingservice.domain.ReplacementWord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReplacementWordRepository extends JpaRepository<ReplacementWord, Long> {
-	boolean existsByReplacement(String replacement);
+	boolean existsByReplaceable(String replaceable);
 }

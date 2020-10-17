@@ -5,7 +5,7 @@ import com.dmitrenko.itemmatchingservice.dto.request.engine.TaskRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ResponseObject;
 import com.dmitrenko.itemmatchingservice.dto.response.ResultResponse;
 import com.dmitrenko.itemmatchingservice.dto.response.TaskProgressResponse;
-import com.dmitrenko.itemmatchingservice.engine.Engine;
+import com.dmitrenko.itemmatchingservice.engine.JobEngine;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -20,24 +20,24 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequiredArgsConstructor
 @Api(value = "Remote control of item matching service")
-public class EngineController {
+public class JobEngineController {
 
-	private final Engine engine;
+	private final JobEngine jobEngine;
 
-	public static final String FIND_MATCHING_ITEMS = "/api/v1/engine/add-task";
-	public static final String CHECK_PROGRESS = "/api/v1/engine/check-progress";
-	public static final String GET_RESULT = "/api/v1/engine/get-result";
-	public static final String CANCEL_TASK = "/api/v1/engine/cancel-task";
+	public static final String FIND_MATCHING_ITEMS = "/api/v1/job-engine/add-task";
+	public static final String CHECK_PROGRESS = "/api/v1/job-engine/check-progress";
+	public static final String GET_RESULT = "/api/v1/job-engine/get-result";
+	public static final String CANCEL_TASK = "/api/v1/job-engine/cancel-task";
 
 	@ApiOperation("Add task to queue")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = FIND_MATCHING_ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	public ResponseObject<Long> add(@RequestBody TaskAddRequest request) {
+	public ResponseObject<String> add(@RequestBody TaskAddRequest request) {
 
-		return ResponseObject.<Long>builder()
+		return ResponseObject.<String>builder()
 			.success(true)
 			.message("")
-			.data(engine.add(request))
+			.data(jobEngine.add(request))
 			.build();
 	}
 
@@ -49,7 +49,7 @@ public class EngineController {
 		return ResponseObject.<TaskProgressResponse>builder()
 			.success(true)
 			.message("")
-			.data(engine.progress(request))
+			.data(jobEngine.progress(request))
 			.build();
 	}
 
@@ -61,7 +61,7 @@ public class EngineController {
 		return ResponseObject.<ResultResponse>builder()
 			.success(true)
 			.message("")
-			.data(engine.get(request))
+			.data(jobEngine.get(request))
 			.build();
 	}
 
@@ -72,8 +72,8 @@ public class EngineController {
 
 		return ResponseObject.<Boolean>builder()
 			.success(true)
-			.message("Task with id " + request.getTaskId() + " was canceled")
-			.data(engine.cancel(request))
+			.message("Task with id " + request.getName() + " was canceled")
+			.data(jobEngine.cancel(request))
 			.build();
 	}
 }

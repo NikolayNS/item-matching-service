@@ -6,11 +6,14 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import java.util.concurrent.BlockingQueue;
+
 @Getter
 @Setter
 @Accessors(chain = true)
 @ToString
 @NoArgsConstructor
-public class ResultView {
-
+public class MatcherDataView {
+	private TaskView taskView;
+	private BlockingQueue<ItemResultView> cache;
 }

@@ -22,6 +22,4 @@ public interface ProductGroupService {
 	void delete(ProductGroupDeleteRequest request);
 
 	void deleteAll();
-
-	ProductGroup getById(Long id);
 }

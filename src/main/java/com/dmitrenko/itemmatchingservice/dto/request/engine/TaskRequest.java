@@ -12,5 +12,5 @@ import lombok.experimental.Accessors;
 @ToString
 @NoArgsConstructor
 public class TaskRequest {
-	private Long taskId;
+	private String name;
 }

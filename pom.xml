@@ -19,12 +19,13 @@
 		<java.version>14</java.version>
 		<maven.compiler.target>14</maven.compiler.target>
 		<maven.compiler.source>14</maven.compiler.source>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<avro.version>1.10.0</avro.version>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
 	</properties>
 
@@ -72,6 +73,13 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-swagger2.version}</version>
+		</dependency>
+
+		<!-- Apache AVRO-->
+		<dependency>
+			<groupId>org.apache.avro</groupId>
+			<artifactId>avro</artifactId>
+			<version>${avro.version}</version>
 		</dependency>
 
 		<!--  Testing  -->

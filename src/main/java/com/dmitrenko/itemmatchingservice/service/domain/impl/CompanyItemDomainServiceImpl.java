@@ -11,6 +11,7 @@ import com.dmitrenko.itemmatchingservice.mapper.impl.response.CompanyItemRespons
 import com.dmitrenko.itemmatchingservice.mapper.impl.update.CompanyItemMerger;
 import com.dmitrenko.itemmatchingservice.repository.CompanyItemRepository;
 import com.dmitrenko.itemmatchingservice.service.domain.CompanyItemDomainService;
+import com.dmitrenko.itemmatchingservice.service.domain.ProductGroupDomainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class CompanyItemDomainServiceImpl implements CompanyItemDomainService {
 	private final CompanyItemRepository repository;
 	private final ApplicationContext context;
 
+	private final ProductGroupDomainService productGroupDomainService;
+
 	@Override
 	@Transactional
 	public CompanyItemResponse add(CompanyItemAddRequest request) {
@@ -34,6 +37,8 @@ public class CompanyItemDomainServiceImpl implements CompanyItemDomainService {
 		var responseMapper = context.getBean(CompanyItemResponseMapper.class);
 
 		var entity = entityMapper.from(request);
+
+		entity.setProductGroup(productGroupDomainService.getById(request.getProductGroupId()));
 
 		entity = repository.saveAndFlush(entity);
 
@@ -68,6 +73,8 @@ public class CompanyItemDomainServiceImpl implements CompanyItemDomainService {
 
 		var entity = updateMerger.merge(repository.getOne(request.getId()), request);
 
+		entity.setProductGroup(productGroupDomainService.getById(request.getProductGroupId()));
+
 		entity = repository.saveAndFlush(entity);
 
 		return responseMapper.from(entity);
@@ -89,7 +96,7 @@ public class CompanyItemDomainServiceImpl implements CompanyItemDomainService {
 
 	private void checkEntityAlreadyExists(String name) {
 		if (isEntityExistByName(name))
-			throw new InvalidParametersException("Brand with name: " + name + " already exists.");
+			throw new InvalidParametersException("Company item with name: " + name + " already exists.");
 	}
 
 	private boolean isEntityExistByName(String name) {
@@ -98,7 +105,7 @@ public class CompanyItemDomainServiceImpl implements CompanyItemDomainService {
 
 	private void checkEntityExists(Long id) {
 		if (!isEntityExists(id))
-			throw new InvalidParametersException("Brand with id: " + id + " does not exists.");
+			throw new InvalidParametersException("Company item with id: " + id + " does not exists.");
 	}
 
 	private boolean isEntityExists(Long id) {

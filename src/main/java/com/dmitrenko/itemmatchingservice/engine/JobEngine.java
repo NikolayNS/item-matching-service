@@ -5,11 +5,9 @@ import com.dmitrenko.itemmatchingservice.dto.request.engine.TaskRequest;
 import com.dmitrenko.itemmatchingservice.dto.response.ResultResponse;
 import com.dmitrenko.itemmatchingservice.dto.response.TaskProgressResponse;
 
-public interface Engine {
+public interface JobEngine {
 
-	Long add(TaskAddRequest request);
-
-	void run();
+	String add(TaskAddRequest request);
 
 	TaskProgressResponse progress(TaskRequest request);
 
