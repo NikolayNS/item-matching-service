@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class ItemController {
 
-	public static final String COMPANY_ITEM_ADD = "/api/v1/company-item/add";
-	public static final String COMPANY_ITEM_GET = "/api/v1/company-item/get";
-	public static final String COMPANY_ITEM_GET_ALL = "/api/v1/company-item/get-all";
-	public static final String COMPANY_ITEM_UPDATE = "/api/v1/company-item/update";
-	public static final String COMPANY_ITEM_DELETE = "/api/v1/company-item/delete";
-	public static final String COMPANY_ITEM_DELETE_ALL = "/api/v1/company-item/delete-all";
+	public static final String ITEM_ADD = "/api/v1/item";
+	public static final String ITEMS = "/api/v1/items";
+	public static final String ITEM = "/api/v1/item/{itemId}";
+	public static final String ITEM_TYPE_ADD = "/api/v1/item/type";
+	public static final String ITEM_TYPES = "/api/v1/item/types";
+	public static final String ITEM_TYPE = "/api/v1/item/type/{itemId}";
+	public static final String ITEM_CURRENCY_ADD = "/api/v1/item/currency";
+	public static final String ITEM_CURRENCIES = "/api/v1/item/currencies";
+	public static final String ITEM_CURRENCY = "/api/v1/item/currency/{currencyId}";
 
 	private final TransferService transferService;
 

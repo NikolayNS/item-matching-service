@@ -1,4 +1,4 @@
-package com.dmitrenko.database.dto.response.item;
+package com.dmitrenko.database.dto.response.brandname;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -10,11 +10,10 @@ import static com.dmitrenko.database.util.Constant.ISO_DATE_TIME_PATTERN;
 
 @Data
 @Accessors(chain = true)
-public class ModifiedStringResponse {
+public class BrandNameResponse {
 	private Long id;
 
-	private String modifiable;
-	private String modifying;
+	private String name;
 
 	@JsonFormat(pattern = ISO_DATE_TIME_PATTERN)
 	private LocalDateTime created;

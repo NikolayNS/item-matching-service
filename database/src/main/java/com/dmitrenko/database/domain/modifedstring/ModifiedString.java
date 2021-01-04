@@ -1,4 +1,4 @@
-package com.dmitrenko.database.domain.item;
+package com.dmitrenko.database.domain.modifedstring;
 
 import com.dmitrenko.database.domain.BaseEntity;
 import lombok.Data;
@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,43 +17,46 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-@Entity(name = "BRAND_NAME")
+@Entity(name = "MODIFIED_STRING")
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@AttributeOverride(name = "id", column = @Column(name = "BRAND_NAME_ID"))
-public class BrandName extends BaseEntity {
+@AttributeOverride(name = "id", column = @Column(name = "MODIFIED_STRING_ID"))
+public class ModifiedString extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "NAME", nullable = false)
-	private String name;
+	@Column(name = "MODIFIABLE")
+	private String modifiable;
+
+	@Column(name = "MODIFYING")
+	private String modifying;
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
-	private List<Item> items = Collections.emptyList();
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "modifiedString")
+	private List<ItemModifiedString> itemModifiedStrings = Collections.emptyList();
 
-	public BrandName(Long id) {
+	public ModifiedString(Long id) {
 		this.id = id;
 	}
 
 	@Override
-	public BrandName setId(Long id) {
+	public ModifiedString setId(Long id) {
 		this.id = id;
 		return this;
 	}
 
 	@Override
-	public BrandName setCreatedDateTime(LocalDateTime createdDateTime) {
+	public ModifiedString setCreatedDateTime(LocalDateTime createdDateTime) {
 		this.createdDateTime = createdDateTime;
 		return this;
 	}
 
 	@Override
-	public BrandName setModifiedDateTime(LocalDateTime modifiedDateTime) {
+	public ModifiedString setModifiedDateTime(LocalDateTime modifiedDateTime) {
 		this.modifiedDateTime = modifiedDateTime;
 		return this;
 	}

@@ -1,7 +1,7 @@
-package com.dmitrenko.database.mapper.impl.response.item;
+package com.dmitrenko.database.mapper.impl.response.brandname;
 
-import com.dmitrenko.database.domain.item.BrandName;
-import com.dmitrenko.database.dto.response.item.BrandNameResponse;
+import com.dmitrenko.database.domain.brandname.BrandName;
+import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

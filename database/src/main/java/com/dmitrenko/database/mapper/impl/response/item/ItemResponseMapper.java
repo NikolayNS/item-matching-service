@@ -1,10 +1,12 @@
 package com.dmitrenko.database.mapper.impl.response.item;
 
 import com.dmitrenko.database.domain.item.Item;
-import com.dmitrenko.database.domain.item.ItemModifiedString;
+import com.dmitrenko.database.domain.modifedstring.ItemModifiedString;
 import com.dmitrenko.database.dto.response.item.ItemResponse;
 import com.dmitrenko.database.mapper.Mapper;
+import com.dmitrenko.database.mapper.impl.response.brandname.BrandNameResponseMapper;
 import com.dmitrenko.database.mapper.impl.response.company.CompanyResponseMapper;
+import com.dmitrenko.database.mapper.impl.response.modifiedstring.ModifiedStringResponseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,8 @@
 package com.dmitrenko.database.dto.response.item;
 
+import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
+import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;

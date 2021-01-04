@@ -1,9 +1,15 @@
 package com.dmitrenko.transferapi.service;
 
+import com.dmitrenko.database.dto.request.brandname.BrandNameAddRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNameUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.company.CompanyUpdateRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringAddRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringUpdateRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldUpdateRequest;
@@ -13,8 +19,10 @@ import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceUpdateRequest;
+import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
+import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceFieldResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
@@ -22,6 +30,21 @@ import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
 import java.util.List;
 
 public interface TransferService {
+
+	BrandNameResponse addBrandName(BrandNameAddRequest request);
+
+	List<BrandNameResponse> addBrandNames(BrandNamesAddRequest request);
+
+	BrandNameResponse getBrandName(Long brandNameId);
+
+	List<BrandNameResponse> getAllBrandNames();
+
+	BrandNameResponse updateBrandName(Long brandNameId, BrandNameUpdateRequest request);
+
+	void deleteBrandName(Long brandNameId);
+
+	void deleteAllBrandNames();
+
 	CompanyResponse addCompany(CompanyAddRequest request);
 
 	CompanyResponse getCompany(Long companyId);
@@ -79,4 +102,18 @@ public interface TransferService {
 	void deleteReferenceFields(ReferenceFieldsDeleteRequest request);
 
 	void deleteAllReferenceFieldsByReferenceId(Long referenceId);
+
+	ModifiedStringResponse addModifiedString(ModifiedStringAddRequest request);
+
+	List<ModifiedStringResponse> addModifiedStrings(ModifiedStringsAddRequest request);
+
+	ModifiedStringResponse getModifiedString(Long modifiedStringId);
+
+	List<ModifiedStringResponse> getAllModifiedStrings();
+
+	ModifiedStringResponse updateModifiedString(Long modifiedStringId, ModifiedStringUpdateRequest request);
+
+	void deleteModifiedString(Long modifiedStringId);
+
+	void deleteAllModifiedStrings();
 }

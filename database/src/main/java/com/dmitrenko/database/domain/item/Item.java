@@ -1,7 +1,9 @@
 package com.dmitrenko.database.domain.item;
 
 import com.dmitrenko.database.domain.BaseEntity;
+import com.dmitrenko.database.domain.brandname.BrandName;
 import com.dmitrenko.database.domain.company.Company;
+import com.dmitrenko.database.domain.modifedstring.ItemModifiedString;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

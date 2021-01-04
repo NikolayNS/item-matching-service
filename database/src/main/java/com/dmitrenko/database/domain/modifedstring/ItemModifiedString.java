@@ -1,6 +1,7 @@
-package com.dmitrenko.database.domain.item;
+package com.dmitrenko.database.domain.modifedstring;
 
 import com.dmitrenko.database.domain.BaseEntity;
+import com.dmitrenko.database.domain.item.Item;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

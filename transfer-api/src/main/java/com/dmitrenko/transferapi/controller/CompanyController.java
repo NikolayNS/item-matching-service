@@ -31,9 +31,9 @@ public class CompanyController {
 	public static final String COMPANY_ADD = "/api/v1/company";
 	public static final String COMPANIES = "/api/v1/companies";
 	public static final String COMPANY = "/api/v1/company/{companyId}";
-	public static final String COMPANY_TYPE_ADD = "/api/v1/company-type";
-	public static final String COMPANY_TYPE = "/api/v1/company-type/{typeId}";
-	public static final String COMPANY_TYPES = "/api/v1/company-types";
+	public static final String COMPANY_TYPE_ADD = "/api/v1/company/type";
+	public static final String COMPANY_TYPES = "/api/v1/company/types";
+	public static final String COMPANY_TYPE = "/api/v1/company/type/{typeId}";
 
 	private final TransferService transferService;
 

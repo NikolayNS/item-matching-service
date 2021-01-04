@@ -1,9 +1,15 @@
 package com.dmitrenko.transferapi.service.impl;
 
+import com.dmitrenko.database.dto.request.brandname.BrandNameAddRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNameUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.company.CompanyUpdateRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringAddRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringUpdateRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldUpdateRequest;
@@ -13,13 +19,17 @@ import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceUpdateRequest;
+import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
+import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceFieldResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
+import com.dmitrenko.database.service.BrandNameService;
 import com.dmitrenko.database.service.CompanyService;
 import com.dmitrenko.database.service.ItemService;
+import com.dmitrenko.database.service.ModifiedStringService;
 import com.dmitrenko.database.service.ReferenceService;
 import com.dmitrenko.transferapi.service.TransferService;
 import lombok.RequiredArgsConstructor;
@@ -31,9 +41,46 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TransferServiceImpl implements TransferService {
 
+	private final BrandNameService brandNameService;
 	private final CompanyService companyService;
 	private final ItemService itemService;
 	private final ReferenceService referenceService;
+	private final ModifiedStringService modifiedStringService;
+
+	@Override
+	public BrandNameResponse addBrandName(BrandNameAddRequest request) {
+		return null;
+	}
+
+	@Override
+	public List<BrandNameResponse> addBrandNames(BrandNamesAddRequest request) {
+		return null;
+	}
+
+	@Override
+	public BrandNameResponse getBrandName(Long brandNameId) {
+		return null;
+	}
+
+	@Override
+	public List<BrandNameResponse> getAllBrandNames() {
+		return null;
+	}
+
+	@Override
+	public BrandNameResponse updateBrandName(Long brandNameId, BrandNameUpdateRequest request) {
+		return null;
+	}
+
+	@Override
+	public void deleteBrandName(Long brandNameId) {
+
+	}
+
+	@Override
+	public void deleteAllBrandNames() {
+
+	}
 
 	@Override
 	public CompanyResponse addCompany(CompanyAddRequest request) {
@@ -177,6 +224,41 @@ public class TransferServiceImpl implements TransferService {
 
 	@Override
 	public void deleteAllReferenceFieldsByReferenceId(Long referenceId) {
+
+	}
+
+	@Override
+	public ModifiedStringResponse addModifiedString(ModifiedStringAddRequest request) {
+		return null;
+	}
+
+	@Override
+	public List<ModifiedStringResponse> addModifiedStrings(ModifiedStringsAddRequest request) {
+		return null;
+	}
+
+	@Override
+	public ModifiedStringResponse getModifiedString(Long modifiedStringId) {
+		return null;
+	}
+
+	@Override
+	public List<ModifiedStringResponse> getAllModifiedStrings() {
+		return null;
+	}
+
+	@Override
+	public ModifiedStringResponse updateModifiedString(Long modifiedStringId, ModifiedStringUpdateRequest request) {
+		return null;
+	}
+
+	@Override
+	public void deleteModifiedString(Long modifiedStringId) {
+
+	}
+
+	@Override
+	public void deleteAllModifiedStrings() {
 
 	}
 }

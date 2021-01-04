@@ -1,7 +1,7 @@
-package com.dmitrenko.database.mapper.impl.response.item;
+package com.dmitrenko.database.mapper.impl.response.modifiedstring;
 
-import com.dmitrenko.database.domain.item.ModifiedString;
-import com.dmitrenko.database.dto.response.item.ModifiedStringResponse;
+import com.dmitrenko.database.domain.modifedstring.ModifiedString;
+import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse;
 import com.dmitrenko.database.mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -37,12 +37,13 @@ public class ReferenceController {
 	public static final String REFERENCE_ADD = "/api/v1/reference";
 	public static final String REFERENCES = "/api/v1/references";
 	public static final String REFERENCE = "/api/v1/reference/{referenceId}";
-	public static final String REFERENCE_TYPE_ADD = "/api/v1/reference-type";
-	public static final String REFERENCE_TYPES = "/api/v1/reference-types";
-	public static final String REFERENCE_TYPE = "/api/v1/reference-type/{typeId}";
-	public static final String REFERENCE_FIELD_ADD = "/api/v1/reference-field";
-	public static final String REFERENCE_FIELDS = "/api/v1/reference-fields";
-	public static final String REFERENCE_FIELD = "/api/v1/reference-field/{fieldId}";
+	public static final String REFERENCE_TYPE_ADD = "/api/v1/reference/type";
+	public static final String REFERENCE_TYPES = "/api/v1/reference/types";
+	public static final String REFERENCE_TYPE = "/api/v1/reference/type/{typeId}";
+	public static final String REFERENCE_FIELD_ADD = "/api/v1/reference/field";
+	public static final String REFERENCE_FIELDS = "/api/v1/reference/fields";
+	public static final String REFERENCE_FIELD = "/api/v1/reference/field/{fieldId}";
+	public static final String REFERENCE_FIELD_DELETE_BY_REF = "/api/v1/reference/{referenceId}/fields";
 
 	private final TransferService transferService;
 
@@ -176,7 +177,7 @@ public class ReferenceController {
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = REFERENCE, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = REFERENCE_FIELD_DELETE_BY_REF, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all reference fields by reference id")
 	public void deleteAllReferenceFieldsByReferenceId(@PathVariable Long referenceId) {
 		transferService.deleteAllReferenceFieldsByReferenceId(referenceId);
