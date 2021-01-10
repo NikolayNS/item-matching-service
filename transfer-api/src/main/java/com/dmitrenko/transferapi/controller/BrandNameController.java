@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -34,7 +36,7 @@ public class BrandNameController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = BRAND_NAME_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add brand name")
-	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody BrandNameRequest request) {
+	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody @Valid BrandNameRequest request) {
 
 		return transferApiService.addBrandName(request);
 	}
@@ -42,7 +44,7 @@ public class BrandNameController {
 	@ResponseStatus(OK)
 	@GetMapping(value = BRAND_NAMES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add brand names")
-	public ListResponse<BrandNameResponse> addBrandNames(@RequestBody BrandNamesAddRequest request) {
+	public ListResponse<BrandNameResponse> addBrandNames(@RequestBody @Valid BrandNamesAddRequest request) {
 
 		return transferApiService.addBrandNames(request);
 	}
@@ -67,7 +69,7 @@ public class BrandNameController {
 	@PatchMapping(value = BRAND_NAME, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update brand name by id")
 	public ObjectResponse<BrandNameResponse> updateBrandName(@PathVariable Long brandNameId,
-															 @RequestBody BrandNameRequest request) {
+															 @RequestBody @Valid BrandNameRequest request) {
 
 		return transferApiService.updateBrandName(brandNameId, request);
 	}

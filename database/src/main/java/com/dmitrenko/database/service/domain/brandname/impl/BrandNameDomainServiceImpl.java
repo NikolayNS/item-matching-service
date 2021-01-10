@@ -42,7 +42,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 
 	private void checkEntityNotExist(String name) {
 		if (brandNameRepository.findByName(name).isPresent())
-			throw new EntityAlreadyExistException(String.format("Entity with name %s already exist", name));
+			throw new EntityAlreadyExistException(String.format("BrandName with name %s already exist", name));
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 
 	private BrandName getEntity(Long id) {
 		return brandNameRepository.findById(id)
-			.orElseThrow(() -> new EntityNotFoundException(String.format("Entity with id %s not found", id)));
+			.orElseThrow(() -> new EntityNotFoundException(String.format("BrandName with id %s not found", id)));
 	}
 
 	@Override
