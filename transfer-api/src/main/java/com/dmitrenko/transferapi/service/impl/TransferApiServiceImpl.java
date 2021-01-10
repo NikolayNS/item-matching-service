@@ -1,7 +1,6 @@
 package com.dmitrenko.transferapi.service.impl;
 
-import com.dmitrenko.database.dto.request.brandname.BrandNameAddRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNameUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
 import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
@@ -61,38 +60,38 @@ public class TransferApiServiceImpl implements TransferApiService {
 	private final ModifiedStringService modifiedStringService;
 
 	@Override
-	public ObjectResponse<BrandNameResponse> addBrandName(BrandNameAddRequest request) {
-		return null;
+	public ObjectResponse<BrandNameResponse> addBrandName(BrandNameRequest request) {
+		return ObjectResponse.success(brandNameService.addBrandName(request));
 	}
 
 	@Override
 	public ListResponse<BrandNameResponse> addBrandNames(BrandNamesAddRequest request) {
-		return null;
+		return ListResponse.success(brandNameService.addBrandNames(request));
 	}
 
 	@Override
 	public ObjectResponse<BrandNameResponse> getBrandName(Long brandNameId) {
-		return null;
+		return ObjectResponse.success(brandNameService.getBrandName(brandNameId));
 	}
 
 	@Override
 	public ListResponse<BrandNameResponse> getAllBrandNames() {
-		return null;
+		return ListResponse.success(brandNameService.getAllBrandNames());
 	}
 
 	@Override
-	public ObjectResponse<BrandNameResponse> updateBrandName(Long brandNameId, BrandNameUpdateRequest request) {
-		return null;
+	public ObjectResponse<BrandNameResponse> updateBrandName(Long brandNameId, BrandNameRequest request) {
+		return ObjectResponse.success(brandNameService.updateBrandName(brandNameId, request));
 	}
 
 	@Override
 	public void deleteBrandName(Long brandNameId) {
-
+		brandNameService.deleteBrandName(brandNameId);
 	}
 
 	@Override
 	public void deleteAllBrandNames() {
-
+		brandNameService.deleteAllBrandNames();
 	}
 
 	@Override

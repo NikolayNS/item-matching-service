@@ -5,5 +5,6 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class BrandNameUpdateRequest {
+public class BrandNameRequest {
+	private String name;
 }

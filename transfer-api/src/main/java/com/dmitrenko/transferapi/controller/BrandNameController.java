@@ -1,7 +1,6 @@
 package com.dmitrenko.transferapi.controller;
 
-import com.dmitrenko.database.dto.request.brandname.BrandNameAddRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNameUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
 import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
@@ -35,7 +34,7 @@ public class BrandNameController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = BRAND_NAME_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add brand name")
-	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody BrandNameAddRequest request) {
+	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody BrandNameRequest request) {
 
 		return transferApiService.addBrandName(request);
 	}
@@ -68,7 +67,7 @@ public class BrandNameController {
 	@PatchMapping(value = BRAND_NAME, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update brand name by id")
 	public ObjectResponse<BrandNameResponse> updateBrandName(@PathVariable Long brandNameId,
-															 @RequestBody BrandNameUpdateRequest request) {
+															 @RequestBody BrandNameRequest request) {
 
 		return transferApiService.updateBrandName(brandNameId, request);
 	}

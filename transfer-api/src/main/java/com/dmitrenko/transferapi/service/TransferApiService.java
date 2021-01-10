@@ -1,7 +1,6 @@
 package com.dmitrenko.transferapi.service;
 
-import com.dmitrenko.database.dto.request.brandname.BrandNameAddRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNameUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
 import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
 import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
@@ -44,7 +43,7 @@ import com.dmitrenko.transferapi.wrapper.ObjectResponse;
 
 public interface TransferApiService {
 
-	ObjectResponse<BrandNameResponse> addBrandName(BrandNameAddRequest request);
+	ObjectResponse<BrandNameResponse> addBrandName(BrandNameRequest request);
 
 	ListResponse<BrandNameResponse> addBrandNames(BrandNamesAddRequest request);
 
@@ -52,7 +51,7 @@ public interface TransferApiService {
 
 	ListResponse<BrandNameResponse> getAllBrandNames();
 
-	ObjectResponse<BrandNameResponse> updateBrandName(Long brandNameId, BrandNameUpdateRequest request);
+	ObjectResponse<BrandNameResponse> updateBrandName(Long brandNameId, BrandNameRequest request);
 
 	void deleteBrandName(Long brandNameId);
 
