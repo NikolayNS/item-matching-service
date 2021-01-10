@@ -1,6 +1,6 @@
-package com.dmitrenko.engine.service;
+package com.dmitrenko.engine.service.domain.impl;
 
-public enum MatcherStatus {
+public enum WriterStatus {
 	IDLE(false),
 	RUNNING(false),
 	FINISHED(true),
@@ -9,7 +9,7 @@ public enum MatcherStatus {
 
 	private final boolean finalStatus;
 
-	MatcherStatus(boolean finalStatus) {
+	WriterStatus(boolean finalStatus) {
 		this.finalStatus = finalStatus;
 	}
 

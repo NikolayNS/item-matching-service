@@ -1,15 +1,10 @@
-package com.dmitrenko.engine.service;
+package com.dmitrenko.engine.service.domain.impl;
 
-import com.dmitrenko.database.dto.view.WriterDataView;
+import com.dmitrenko.engine.service.domain.WriterFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class WriterFactoryImpl implements WriterFactory {
-
-	@Override
-	public Writer get(WriterDataView data) {
-		return null;
-	}
 }

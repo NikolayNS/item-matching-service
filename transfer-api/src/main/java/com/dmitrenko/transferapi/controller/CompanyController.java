@@ -6,7 +6,7 @@ import com.dmitrenko.database.dto.request.company.CompanyTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.company.CompanyUpdateRequest;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
-import com.dmitrenko.transferapi.service.TransferService;
+import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,27 +35,30 @@ public class CompanyController {
 	public static final String COMPANY_TYPES = "/api/v1/company/types";
 	public static final String COMPANY_TYPE = "/api/v1/company/type/{typeId}";
 
-	private final TransferService transferService;
+	private final TransferApiService transferApiService;
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = COMPANY_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add company")
 	public ObjectResponse<CompanyResponse> addCompany(@RequestBody CompanyAddRequest request) {
-		return ObjectResponse.success(transferService.addCompany(request));
+
+		return transferApiService.addCompany(request);
 	}
 
 	@ResponseStatus(OK)
 	@GetMapping(value = COMPANY, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Get company by id")
 	public ObjectResponse<CompanyResponse> getCompany(@PathVariable Long companyId) {
-		return ObjectResponse.success(transferService.getCompany(companyId));
+
+		return transferApiService.getCompany(companyId);
 	}
 
 	@ResponseStatus(OK)
 	@GetMapping(value = COMPANIES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Get all companies")
 	public ListResponse<CompanyResponse> getAllCompanies() {
-		return ListResponse.success(transferService.getAllCompanies());
+
+		return transferApiService.getAllCompanies();
 	}
 
 	@ResponseStatus(OK)
@@ -63,35 +66,40 @@ public class CompanyController {
 	@Operation(description = "Update company by id")
 	public ObjectResponse<CompanyResponse> updateCompany(@PathVariable Long companyId,
 														 @RequestBody CompanyUpdateRequest request) {
-		return ObjectResponse.success(transferService.updateCompany(companyId, request));
+
+		return transferApiService.updateCompany(companyId, request);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = COMPANY, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete company by id")
 	public void deleteCompany(@PathVariable Long companyId) {
-		transferService.deleteCompany(companyId);
+
+		transferApiService.deleteCompany(companyId);
 	}
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = COMPANY_TYPE_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add company type")
 	public ObjectResponse<CompanyTypeResponse> addCompanyType(@RequestBody CompanyTypeAddRequest request) {
-		return ObjectResponse.success(transferService.addCompanyType(request));
+
+		return transferApiService.addCompanyType(request);
 	}
 
 	@ResponseStatus(OK)
 	@GetMapping(value = COMPANY_TYPE, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Get company type by id")
 	public ObjectResponse<CompanyTypeResponse> getCompanyType(@PathVariable Long typeId) {
-		return ObjectResponse.success(transferService.getCompanyType(typeId));
+
+		return transferApiService.getCompanyType(typeId);
 	}
 
 	@ResponseStatus(OK)
 	@GetMapping(value = COMPANY_TYPES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Get all company types")
 	public ListResponse<CompanyTypeResponse> getAllCompanyTypes() {
-		return ListResponse.success(transferService.getAllCompanyTypes());
+
+		return transferApiService.getAllCompanyTypes();
 	}
 
 	@ResponseStatus(OK)
@@ -99,13 +107,15 @@ public class CompanyController {
 	@Operation(description = "Update company type by id")
 	public ObjectResponse<CompanyTypeResponse> updateCompanyType(@PathVariable Long typeId,
 																 @RequestBody CompanyTypeUpdateRequest request) {
-		return ObjectResponse.success(transferService.updateCompanyType(typeId, request));
+
+		return transferApiService.updateCompanyType(typeId, request);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = COMPANY_TYPE, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete company type by id")
 	public void deleteCompanyType(@PathVariable Long typeId) {
-		transferService.deleteCompanyType(typeId);
+
+		transferApiService.deleteCompanyType(typeId);
 	}
 }

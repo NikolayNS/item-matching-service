@@ -1,6 +1,6 @@
-package com.dmitrenko.engine.service;
+package com.dmitrenko.engine.service.domain.impl;
 
-import com.dmitrenko.database.dto.view.MatcherDataView;
+import com.dmitrenko.engine.service.domain.MatcherFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,8 +8,4 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MatcherFactoryImpl implements MatcherFactory {
 
-	@Override
-	public Matcher get(MatcherDataView data) {
-		return null;
-	}
 }

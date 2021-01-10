@@ -1,5 +1,6 @@
-package com.dmitrenko.engine.service;
+package com.dmitrenko.engine.service.domain.impl;
 
+import com.dmitrenko.engine.service.domain.Matcher;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
