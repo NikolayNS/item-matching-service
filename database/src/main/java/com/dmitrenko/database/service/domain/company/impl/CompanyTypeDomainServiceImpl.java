@@ -11,6 +11,7 @@ import com.dmitrenko.database.repository.CompanyTypeRepository;
 import com.dmitrenko.database.service.domain.company.CompanyTypeDomainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
@@ -27,6 +28,7 @@ public class CompanyTypeDomainServiceImpl implements CompanyTypeDomainService {
 	private final CompanyTypeResponseMapper companyTypeResponseMapper;
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public CompanyTypeResponse addCompanyType(@Valid CompanyTypeRequest request) {
 		checkEntityNotExist(request.getName());
 
@@ -42,6 +44,7 @@ public class CompanyTypeDomainServiceImpl implements CompanyTypeDomainService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public CompanyTypeResponse getCompanyType(Long typeId) {
 		return companyTypeResponseMapper.from(getEntity(typeId));
 	}
@@ -52,11 +55,13 @@ public class CompanyTypeDomainServiceImpl implements CompanyTypeDomainService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<CompanyTypeResponse> getAllCompanyTypes() {
 		return companyTypeResponseMapper.from(companyTypeRepository.findAll());
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public CompanyTypeResponse updateCompanyType(Long typeId, @Valid CompanyTypeRequest request) {
 		var type = getEntity(typeId);
 		type = companyTypeMerger.merge(type, request);
@@ -67,6 +72,7 @@ public class CompanyTypeDomainServiceImpl implements CompanyTypeDomainService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public void deleteCompanyType(Long companyId) {
 		var type = getEntity(companyId);
 		companyTypeRepository.delete(type);
