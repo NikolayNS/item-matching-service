@@ -1,11 +1,9 @@
 package com.dmitrenko.transferapi.service;
 
 import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyTypeUpdateRequest;
-import com.dmitrenko.database.dto.request.company.CompanyUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesRequest;
+import com.dmitrenko.database.dto.request.company.CompanyRequest;
+import com.dmitrenko.database.dto.request.company.CompanyTypeRequest;
 import com.dmitrenko.database.dto.request.item.CurrencyAddRequest;
 import com.dmitrenko.database.dto.request.item.CurrencyUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemAddRequest;
@@ -45,7 +43,7 @@ public interface TransferApiService {
 
 	ObjectResponse<BrandNameResponse> addBrandName(BrandNameRequest request);
 
-	ListResponse<BrandNameResponse> addBrandNames(BrandNamesAddRequest request);
+	ListResponse<BrandNameResponse> addBrandNames(BrandNamesRequest request);
 
 	ObjectResponse<BrandNameResponse> getBrandName(Long brandNameId);
 
@@ -57,23 +55,23 @@ public interface TransferApiService {
 
 	void deleteAllBrandNames();
 
-	ObjectResponse<CompanyResponse> addCompany(CompanyAddRequest request);
+	ObjectResponse<CompanyResponse> addCompany(CompanyRequest request);
 
 	ObjectResponse<CompanyResponse> getCompany(Long companyId);
 
 	ListResponse<CompanyResponse> getAllCompanies();
 
-	ObjectResponse<CompanyResponse> updateCompany(Long companyId, CompanyUpdateRequest request);
+	ObjectResponse<CompanyResponse> updateCompany(Long companyId, CompanyRequest request);
 
 	void deleteCompany(Long companyId);
 
-	ObjectResponse<CompanyTypeResponse> addCompanyType(CompanyTypeAddRequest request);
+	ObjectResponse<CompanyTypeResponse> addCompanyType(CompanyTypeRequest request);
 
 	ObjectResponse<CompanyTypeResponse> getCompanyType(Long typeId);
 
 	ListResponse<CompanyTypeResponse> getAllCompanyTypes();
 
-	ObjectResponse<CompanyTypeResponse> updateCompanyType(Long typeId, CompanyTypeUpdateRequest request);
+	ObjectResponse<CompanyTypeResponse> updateCompanyType(Long typeId, CompanyTypeRequest request);
 
 	void deleteCompanyType(Long companyId);
 

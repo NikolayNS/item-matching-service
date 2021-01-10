@@ -1,9 +1,7 @@
 package com.dmitrenko.transferapi.controller;
 
-import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyTypeUpdateRequest;
-import com.dmitrenko.database.dto.request.company.CompanyUpdateRequest;
+import com.dmitrenko.database.dto.request.company.CompanyRequest;
+import com.dmitrenko.database.dto.request.company.CompanyTypeRequest;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
@@ -40,7 +38,7 @@ public class CompanyController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = COMPANY_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add company")
-	public ObjectResponse<CompanyResponse> addCompany(@RequestBody CompanyAddRequest request) {
+	public ObjectResponse<CompanyResponse> addCompany(@RequestBody CompanyRequest request) {
 
 		return transferApiService.addCompany(request);
 	}
@@ -65,7 +63,7 @@ public class CompanyController {
 	@PatchMapping(value = COMPANY, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update company by id")
 	public ObjectResponse<CompanyResponse> updateCompany(@PathVariable Long companyId,
-														 @RequestBody CompanyUpdateRequest request) {
+														 @RequestBody CompanyRequest request) {
 
 		return transferApiService.updateCompany(companyId, request);
 	}
@@ -81,7 +79,7 @@ public class CompanyController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = COMPANY_TYPE_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add company type")
-	public ObjectResponse<CompanyTypeResponse> addCompanyType(@RequestBody CompanyTypeAddRequest request) {
+	public ObjectResponse<CompanyTypeResponse> addCompanyType(@RequestBody CompanyTypeRequest request) {
 
 		return transferApiService.addCompanyType(request);
 	}
@@ -106,7 +104,7 @@ public class CompanyController {
 	@PatchMapping(value = COMPANY_TYPE, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update company type by id")
 	public ObjectResponse<CompanyTypeResponse> updateCompanyType(@PathVariable Long typeId,
-																 @RequestBody CompanyTypeUpdateRequest request) {
+																 @RequestBody CompanyTypeRequest request) {
 
 		return transferApiService.updateCompanyType(typeId, request);
 	}

@@ -1,8 +1,8 @@
 package com.dmitrenko.database.domain.company;
 
 public enum CompanyTypeEnum {
-	MAGNIT,
-	X5,
-	LENTA,
+	COSTCO,
+	TARGET,
+	WHOLE_FOODS,
 	WALLMART
 }

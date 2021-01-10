@@ -1,7 +1,7 @@
 package com.dmitrenko.database.service.impl;
 
 import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.service.BrandNameService;
 import com.dmitrenko.database.service.domain.brandname.BrandNameDomainService;
@@ -22,7 +22,7 @@ public class BrandNameServiceImpl implements BrandNameService {
 	}
 
 	@Override
-	public List<BrandNameResponse> addBrandNames(BrandNamesAddRequest request) {
+	public List<BrandNameResponse> addBrandNames(BrandNamesRequest request) {
 		return brandNameDomainService.addBrandNames(request);
 	}
 

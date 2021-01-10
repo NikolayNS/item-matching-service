@@ -1,7 +1,7 @@
 package com.dmitrenko.transferapi.controller;
 
 import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
@@ -36,7 +36,7 @@ public class BrandNameController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = BRAND_NAME_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add brand name")
-	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody @Valid BrandNameRequest request) {
+	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody BrandNameRequest request) {
 
 		return transferApiService.addBrandName(request);
 	}
@@ -44,7 +44,7 @@ public class BrandNameController {
 	@ResponseStatus(OK)
 	@GetMapping(value = BRAND_NAMES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add brand names")
-	public ListResponse<BrandNameResponse> addBrandNames(@RequestBody @Valid BrandNamesAddRequest request) {
+	public ListResponse<BrandNameResponse> addBrandNames(@RequestBody BrandNamesRequest request) {
 
 		return transferApiService.addBrandNames(request);
 	}
@@ -69,7 +69,7 @@ public class BrandNameController {
 	@PatchMapping(value = BRAND_NAME, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update brand name by id")
 	public ObjectResponse<BrandNameResponse> updateBrandName(@PathVariable Long brandNameId,
-															 @RequestBody @Valid BrandNameRequest request) {
+															 @RequestBody BrandNameRequest request) {
 
 		return transferApiService.updateBrandName(brandNameId, request);
 	}

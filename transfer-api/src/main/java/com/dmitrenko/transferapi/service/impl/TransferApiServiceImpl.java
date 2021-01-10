@@ -1,11 +1,9 @@
 package com.dmitrenko.transferapi.service.impl;
 
 import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyTypeAddRequest;
-import com.dmitrenko.database.dto.request.company.CompanyTypeUpdateRequest;
-import com.dmitrenko.database.dto.request.company.CompanyUpdateRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesRequest;
+import com.dmitrenko.database.dto.request.company.CompanyRequest;
+import com.dmitrenko.database.dto.request.company.CompanyTypeRequest;
 import com.dmitrenko.database.dto.request.item.CurrencyAddRequest;
 import com.dmitrenko.database.dto.request.item.CurrencyUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemAddRequest;
@@ -65,7 +63,7 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public ListResponse<BrandNameResponse> addBrandNames(BrandNamesAddRequest request) {
+	public ListResponse<BrandNameResponse> addBrandNames(BrandNamesRequest request) {
 		return ListResponse.success(brandNameService.addBrandNames(request));
 	}
 
@@ -95,53 +93,53 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public ObjectResponse<CompanyResponse> addCompany(CompanyAddRequest request) {
-		return null;
+	public ObjectResponse<CompanyResponse> addCompany(CompanyRequest request) {
+		return ObjectResponse.success(companyService.addCompany(request));
 	}
 
 	@Override
 	public ObjectResponse<CompanyResponse> getCompany(Long companyId) {
-		return null;
+		return ObjectResponse.success(companyService.getCompany(companyId));
 	}
 
 	@Override
 	public ListResponse<CompanyResponse> getAllCompanies() {
-		return null;
+		return ListResponse.success(companyService.getAllCompanies());
 	}
 
 	@Override
-	public ObjectResponse<CompanyResponse> updateCompany(Long companyId, CompanyUpdateRequest request) {
-		return null;
+	public ObjectResponse<CompanyResponse> updateCompany(Long companyId, CompanyRequest request) {
+		return ObjectResponse.success(companyService.updateCompany(companyId, request));
 	}
 
 	@Override
 	public void deleteCompany(Long companyId) {
-
+		companyService.deleteCompany(companyId);
 	}
 
 	@Override
-	public ObjectResponse<CompanyTypeResponse> addCompanyType(CompanyTypeAddRequest request) {
-		return null;
+	public ObjectResponse<CompanyTypeResponse> addCompanyType(CompanyTypeRequest request) {
+		return ObjectResponse.success(companyService.addCompanyType(request));
 	}
 
 	@Override
 	public ObjectResponse<CompanyTypeResponse> getCompanyType(Long typeId) {
-		return null;
+		return ObjectResponse.success(companyService.getCompanyType(typeId));
 	}
 
 	@Override
 	public ListResponse<CompanyTypeResponse> getAllCompanyTypes() {
-		return null;
+		return ListResponse.success(companyService.getAllCompanyTypes());
 	}
 
 	@Override
-	public ObjectResponse<CompanyTypeResponse> updateCompanyType(Long typeId, CompanyTypeUpdateRequest request) {
-		return null;
+	public ObjectResponse<CompanyTypeResponse> updateCompanyType(Long typeId, CompanyTypeRequest request) {
+		return ObjectResponse.success(companyService.updateCompanyType(typeId, request));
 	}
 
 	@Override
 	public void deleteCompanyType(Long companyId) {
-
+		companyService.deleteCompanyType(companyId);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @Accessors(chain = true)
-public class BrandNamesAddRequest {
+public class BrandNamesRequest {
 
 	@NotEmpty(message = "The [brandNames] parameter must contain elements. ")
 	private List<@Valid BrandNameRequest> brandNames;

@@ -2,7 +2,7 @@ package com.dmitrenko.database.service.domain.brandname.impl;
 
 import com.dmitrenko.database.domain.brandname.BrandName;
 import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
-import com.dmitrenko.database.dto.request.brandname.BrandNamesAddRequest;
+import com.dmitrenko.database.dto.request.brandname.BrandNamesRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.exception.EntityAlreadyExistException;
 import com.dmitrenko.database.mapper.impl.domain.brandname.BrandNameMapper;
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public BrandNameResponse addBrandName(BrandNameRequest request) {
+	public BrandNameResponse addBrandName(@Valid BrandNameRequest request) {
 		checkEntityNotExist(request.getName());
 
 		var brandName = brandNameMapper.from(request);
@@ -47,7 +48,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public List<BrandNameResponse> addBrandNames(BrandNamesAddRequest request) {
+	public List<BrandNameResponse> addBrandNames(@Valid BrandNamesRequest request) {
 		var checkedList = request.getBrandNames()
 			.stream()
 			.filter(brandNameRequest -> brandNameRepository.findByName(brandNameRequest.getName()).isEmpty())
@@ -79,7 +80,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public BrandNameResponse updateBrandName(Long brandNameId, BrandNameRequest request) {
+	public BrandNameResponse updateBrandName(Long brandNameId, @Valid BrandNameRequest request) {
 		var brandName = getEntity(brandNameId);
 		brandName = brandNameMerger.merge(brandName, request);
 

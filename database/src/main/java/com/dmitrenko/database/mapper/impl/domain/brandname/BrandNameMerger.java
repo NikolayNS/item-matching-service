@@ -13,6 +13,6 @@ public class BrandNameMerger implements Merger<BrandName, BrandNameRequest> {
 	@Override
 	public BrandName merge(BrandName target, BrandNameRequest source) {
 		return target
-			.setName(source.getName().isBlank() ? target.getName() : source.getName());
+			.setName(source.getName());
 	}
 }
