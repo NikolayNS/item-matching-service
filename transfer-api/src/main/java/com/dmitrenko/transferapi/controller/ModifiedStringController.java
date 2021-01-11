@@ -1,8 +1,7 @@
 package com.dmitrenko.transferapi.controller;
 
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringAddRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringUpdateRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsAddRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsRequest;
 import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
@@ -35,7 +34,7 @@ public class ModifiedStringController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = MODIFIED_STRING_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add modified string")
-	public ObjectResponse<ModifiedStringResponse> addModifiedString(@RequestBody ModifiedStringAddRequest request) {
+	public ObjectResponse<ModifiedStringResponse> addModifiedString(@RequestBody ModifiedStringRequest request) {
 
 		return transferApiService.addModifiedString(request);
 	}
@@ -43,7 +42,7 @@ public class ModifiedStringController {
 	@ResponseStatus(OK)
 	@GetMapping(value = MODIFIED_STRINGS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add modified strings")
-	public ListResponse<ModifiedStringResponse> addModifiedStrings(@RequestBody ModifiedStringsAddRequest request) {
+	public ListResponse<ModifiedStringResponse> addModifiedStrings(@RequestBody ModifiedStringsRequest request) {
 
 		return transferApiService.addModifiedStrings(request);
 	}
@@ -68,7 +67,7 @@ public class ModifiedStringController {
 	@PatchMapping(value = MODIFIED_STRING, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update modified string by id")
 	public ObjectResponse<ModifiedStringResponse> updateModifiedString(@PathVariable Long modifiedStringId,
-																	   @RequestBody ModifiedStringUpdateRequest request) {
+																	   @RequestBody ModifiedStringRequest request) {
 
 		return transferApiService.updateModifiedString(modifiedStringId, request);
 	}

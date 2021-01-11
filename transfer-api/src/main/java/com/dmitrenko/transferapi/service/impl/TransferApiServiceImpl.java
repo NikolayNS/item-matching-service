@@ -11,9 +11,8 @@ import com.dmitrenko.database.dto.request.item.ItemTypeAddRequest;
 import com.dmitrenko.database.dto.request.item.ItemTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringAddRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringUpdateRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsAddRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldUpdateRequest;
@@ -41,11 +40,14 @@ import com.dmitrenko.database.service.CompanyService;
 import com.dmitrenko.database.service.ItemService;
 import com.dmitrenko.database.service.ModifiedStringService;
 import com.dmitrenko.database.service.ReferenceService;
+import com.dmitrenko.database.service.UserService;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -54,8 +56,9 @@ public class TransferApiServiceImpl implements TransferApiService {
 	private final BrandNameService brandNameService;
 	private final CompanyService companyService;
 	private final ItemService itemService;
-	private final ReferenceService referenceService;
 	private final ModifiedStringService modifiedStringService;
+	private final ReferenceService referenceService;
+	private final UserService userService;
 
 	@Override
 	public ObjectResponse<BrandNameResponse> addBrandName(BrandNameRequest request) {
@@ -228,38 +231,38 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public ObjectResponse<ModifiedStringResponse> addModifiedString(ModifiedStringAddRequest request) {
-		return null;
+	public ObjectResponse<ModifiedStringResponse> addModifiedString(ModifiedStringRequest request) {
+		return ObjectResponse.success(modifiedStringService.addModifiedString(request));
 	}
 
 	@Override
-	public ListResponse<ModifiedStringResponse> addModifiedStrings(ModifiedStringsAddRequest request) {
-		return null;
+	public ListResponse<ModifiedStringResponse> addModifiedStrings(ModifiedStringsRequest request) {
+		return ListResponse.success(modifiedStringService.addModifiedStrings(request));
 	}
 
 	@Override
 	public ObjectResponse<ModifiedStringResponse> getModifiedString(Long modifiedStringId) {
-		return null;
+		return ObjectResponse.success(modifiedStringService.getModifiedString(modifiedStringId));
 	}
 
 	@Override
 	public ListResponse<ModifiedStringResponse> getAllModifiedStrings() {
-		return null;
+		return ListResponse.success(modifiedStringService.getAllModifiedStrings());
 	}
 
 	@Override
-	public ObjectResponse<ModifiedStringResponse> updateModifiedString(Long modifiedStringId, ModifiedStringUpdateRequest request) {
-		return null;
+	public ObjectResponse<ModifiedStringResponse> updateModifiedString(Long modifiedStringId, ModifiedStringRequest request) {
+		return ObjectResponse.success(modifiedStringService.updateModifiedString(modifiedStringId, request));
 	}
 
 	@Override
 	public void deleteModifiedString(Long modifiedStringId) {
-
+		modifiedStringService.deleteModifiedString(modifiedStringId);
 	}
 
 	@Override
 	public void deleteAllModifiedStrings() {
-
+		modifiedStringService.deleteAllModifiedStrings();
 	}
 
 	@Override

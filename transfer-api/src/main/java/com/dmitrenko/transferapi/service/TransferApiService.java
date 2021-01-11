@@ -11,9 +11,8 @@ import com.dmitrenko.database.dto.request.item.ItemTypeAddRequest;
 import com.dmitrenko.database.dto.request.item.ItemTypeUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringAddRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringUpdateRequest;
-import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsAddRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringRequest;
+import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldAddRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldUpdateRequest;
@@ -109,15 +108,15 @@ public interface TransferApiService {
 
 	void deleteCurrency(Long currencyId);
 
-	ObjectResponse<ModifiedStringResponse> addModifiedString(ModifiedStringAddRequest request);
+	ObjectResponse<ModifiedStringResponse> addModifiedString(ModifiedStringRequest request);
 
-	ListResponse<ModifiedStringResponse> addModifiedStrings(ModifiedStringsAddRequest request);
+	ListResponse<ModifiedStringResponse> addModifiedStrings(ModifiedStringsRequest request);
 
 	ObjectResponse<ModifiedStringResponse> getModifiedString(Long modifiedStringId);
 
 	ListResponse<ModifiedStringResponse> getAllModifiedStrings();
 
-	ObjectResponse<ModifiedStringResponse> updateModifiedString(Long modifiedStringId, ModifiedStringUpdateRequest request);
+	ObjectResponse<ModifiedStringResponse> updateModifiedString(Long modifiedStringId, ModifiedStringRequest request);
 
 	void deleteModifiedString(Long modifiedStringId);
 
