@@ -3,7 +3,6 @@ package com.dmitrenko.database.domain.item;
 import com.dmitrenko.database.domain.BaseEntity;
 import com.dmitrenko.database.domain.brandname.BrandName;
 import com.dmitrenko.database.domain.company.Company;
-import com.dmitrenko.database.domain.modifedstring.ItemModifiedString;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -11,16 +10,12 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.AttributeOverride;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
 
 @Entity(name = "ITEM")
 @Data
@@ -57,11 +52,6 @@ public class Item extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "BRAND_ID")
 	private BrandName brandName;
-
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
-	private List<ItemModifiedString> itemModifiedStrings = Collections.emptyList();
 
 	public Item(Long id) {
 		this.id = id;

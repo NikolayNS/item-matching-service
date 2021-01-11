@@ -8,14 +8,9 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.AttributeOverride;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
 
 @Entity(name = "MODIFIED_STRING")
 @Data
@@ -33,11 +28,6 @@ public class ModifiedString extends BaseEntity {
 
 	@Column(name = "MODIFYING")
 	private String modifying;
-
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "modifiedString")
-	private List<ItemModifiedString> itemModifiedStrings = Collections.emptyList();
 
 	public ModifiedString(Long id) {
 		this.id = id;

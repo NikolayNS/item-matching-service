@@ -33,7 +33,8 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public BrandNameResponse addBrandName(@Valid BrandNameRequest request) {
-		checkEntityNotExist(request.getName());
+		if (brandNameRepository.findByName(request.getName()).isPresent())
+			throw new EntityAlreadyExistException(String.format("BrandName with name %s already exist", request.getName()));
 
 		var brandName = brandNameMapper.from(request);
 		brandName = brandNameRepository.saveAndFlush(brandName);
@@ -41,29 +42,20 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 		return brandNameResponseMapper.from(brandName);
 	}
 
-	private void checkEntityNotExist(String name) {
-		if (brandNameRepository.findByName(name).isPresent())
-			throw new EntityAlreadyExistException(String.format("BrandName with name %s already exist", name));
-	}
-
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public List<BrandNameResponse> addBrandNames(@Valid BrandNamesRequest request) {
-		var checkedList = request.getBrandNames()
+		return brandNameResponseMapper.from(request.getBrandNames()
 			.stream()
 			.filter(brandNameRequest -> brandNameRepository.findByName(brandNameRequest.getName()).isEmpty())
-			.collect(Collectors.toList());
-
-		var entities = brandNameMapper.from(checkedList);
-		entities = brandNameRepository.saveAll(entities);
-		brandNameRepository.flush();
-
-		return brandNameResponseMapper.from(entities);
+			.map(brandNameRequest -> brandNameRepository.saveAndFlush(brandNameMapper.from(brandNameRequest)))
+			.collect(Collectors.toList()));
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public BrandNameResponse getBrandName(Long brandNameId) {
+
 		return brandNameResponseMapper.from(getEntity(brandNameId));
 	}
 
@@ -99,6 +91,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public void deleteAllBrandNames() {
+
 		brandNameRepository.deleteAll();
 	}
 }

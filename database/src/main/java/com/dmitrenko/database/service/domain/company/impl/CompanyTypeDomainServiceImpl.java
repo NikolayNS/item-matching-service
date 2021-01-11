@@ -30,17 +30,13 @@ public class CompanyTypeDomainServiceImpl implements CompanyTypeDomainService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public CompanyTypeResponse addCompanyType(@Valid CompanyTypeRequest request) {
-		checkEntityNotExist(request.getName());
+		if (companyTypeRepository.findByName(request.getName()).isPresent())
+			throw new EntityAlreadyExistException(String.format("Company type with name %s already exist", request.getName()));
 
 		var type = companyTypeMapper.from(request);
 		type = companyTypeRepository.saveAndFlush(type);
 
 		return companyTypeResponseMapper.from(type);
-	}
-
-	private void checkEntityNotExist(String name) {
-		if (companyTypeRepository.findByName(name).isPresent())
-			throw new EntityAlreadyExistException(String.format("Company type with name %s already exist", name));
 	}
 
 	@Override

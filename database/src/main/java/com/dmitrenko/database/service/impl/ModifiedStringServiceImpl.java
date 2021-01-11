@@ -4,7 +4,6 @@ import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringRequest;
 import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsRequest;
 import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse;
 import com.dmitrenko.database.service.ModifiedStringService;
-import com.dmitrenko.database.service.domain.modifiedstring.ItemModifiedStringDomainService;
 import com.dmitrenko.database.service.domain.modifiedstring.ModifiedStringDomainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,40 +15,39 @@ import java.util.List;
 public class ModifiedStringServiceImpl implements ModifiedStringService {
 
 	private final ModifiedStringDomainService modifiedStringDomainService;
-	private final ItemModifiedStringDomainService itemModifiedStringDomainService;
 
 	@Override
 	public ModifiedStringResponse addModifiedString(ModifiedStringRequest request) {
-		return null;
+		return modifiedStringDomainService.addModifiedString(request);
 	}
 
 	@Override
 	public List<ModifiedStringResponse> addModifiedStrings(ModifiedStringsRequest request) {
-		return null;
+		return modifiedStringDomainService.addModifiedStrings(request);
 	}
 
 	@Override
 	public ModifiedStringResponse getModifiedString(Long modifiedStringId) {
-		return null;
+		return modifiedStringDomainService.getModifiedString(modifiedStringId);
 	}
 
 	@Override
 	public List<ModifiedStringResponse> getAllModifiedStrings() {
-		return null;
+		return modifiedStringDomainService.getAllModifiedStrings();
 	}
 
 	@Override
 	public ModifiedStringResponse updateModifiedString(Long modifiedStringId, ModifiedStringRequest request) {
-		return null;
+		return modifiedStringDomainService.updateModifiedString(modifiedStringId, request);
 	}
 
 	@Override
 	public void deleteModifiedString(Long modifiedStringId) {
-
+		modifiedStringDomainService.deleteModifiedString(modifiedStringId);
 	}
 
 	@Override
 	public void deleteAllModifiedStrings() {
-
+		modifiedStringDomainService.deleteAllModifiedStrings();
 	}
 }
