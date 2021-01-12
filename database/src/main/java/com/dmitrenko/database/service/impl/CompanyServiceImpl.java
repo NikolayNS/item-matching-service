@@ -40,8 +40,8 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public void deleteCompany(Long companyId) {
-		companyDomainService.deleteCompany(companyId);
+	public boolean deleteCompany(Long companyId) {
+		return companyDomainService.deleteCompany(companyId);
 	}
 
 	@Override

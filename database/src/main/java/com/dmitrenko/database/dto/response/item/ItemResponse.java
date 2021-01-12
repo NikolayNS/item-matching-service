@@ -19,8 +19,7 @@ public class ItemResponse {
 	private Long id;
 
 	private String barcode;
-	private String originalName;
-	private String modifiedName;
+	private String name;
 	private PriceResponse price;
 	private ItemTypeResponse type;
 	private CompanyResponse company;

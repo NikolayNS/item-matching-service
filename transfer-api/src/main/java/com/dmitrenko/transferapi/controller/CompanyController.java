@@ -7,6 +7,7 @@ import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,9 +72,9 @@ public class CompanyController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = COMPANY, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete company by id")
-	public void deleteCompany(@PathVariable Long companyId) {
+	public SuccessWrapper deleteCompany(@PathVariable Long companyId) {
 
-		transferApiService.deleteCompany(companyId);
+		return transferApiService.deleteCompany(companyId);
 	}
 
 	@ResponseStatus(CREATED)

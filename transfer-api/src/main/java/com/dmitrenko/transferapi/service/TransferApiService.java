@@ -37,6 +37,7 @@ import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
 import com.dmitrenko.database.dto.response.user.UserResponse;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 
 public interface TransferApiService {
 
@@ -62,7 +63,7 @@ public interface TransferApiService {
 
 	ObjectResponse<CompanyResponse> updateCompany(Long companyId, CompanyRequest request);
 
-	void deleteCompany(Long companyId);
+	SuccessWrapper deleteCompany(Long companyId);
 
 	ObjectResponse<CompanyTypeResponse> addCompanyType(CompanyTypeRequest request);
 
@@ -140,7 +141,7 @@ public interface TransferApiService {
 
 	ObjectResponse<ReferenceTypeResponse> updateReferenceType(Long typeId, ReferenceTypeUpdateRequest request);
 
-	void deleteReferenceType(Long companyId);
+	void deleteReferenceType(Long typeId);
 
 	ObjectResponse<ReferenceFieldResponse> addReferenceField(ReferenceFieldAddRequest request);
 

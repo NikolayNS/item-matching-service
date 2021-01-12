@@ -15,5 +15,5 @@ public interface CompanyDomainService {
 
 	CompanyResponse updateCompany(Long companyId, CompanyRequest request);
 
-	void deleteCompany(Long companyId);
+	boolean deleteCompany(Long companyId);
 }

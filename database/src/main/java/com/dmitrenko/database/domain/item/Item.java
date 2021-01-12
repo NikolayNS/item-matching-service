@@ -3,6 +3,7 @@ package com.dmitrenko.database.domain.item;
 import com.dmitrenko.database.domain.BaseEntity;
 import com.dmitrenko.database.domain.brandname.BrandName;
 import com.dmitrenko.database.domain.company.Company;
+import com.dmitrenko.database.domain.reference.ReferenceField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -31,11 +32,8 @@ public class Item extends BaseEntity {
 	@Column(name = "BARCODE")
 	private String barcode;
 
-	@Column(name = "ORIGINAL_NAME", nullable = false)
-	private String originalName;
-
-	@Column(name = "MODIFIED_NAME")
-	private String modifiedName;
+	@Column(name = "NAME", nullable = false)
+	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "PRICE_ID")
@@ -52,6 +50,10 @@ public class Item extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "BRAND_ID")
 	private BrandName brandName;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "REFERENCE_FIELD_ID")
+	private ReferenceField referenceField;
 
 	public Item(Long id) {
 		this.id = id;

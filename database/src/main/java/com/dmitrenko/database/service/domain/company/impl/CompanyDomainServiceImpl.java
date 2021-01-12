@@ -69,8 +69,11 @@ public class CompanyDomainServiceImpl implements CompanyDomainService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public void deleteCompany(Long companyId) {
+	public boolean deleteCompany(Long companyId) {
 		var company = getEntity(companyId);
+
 		companyRepository.delete(company);
+
+		return !companyRepository.existsById(companyId);
 	}
 }

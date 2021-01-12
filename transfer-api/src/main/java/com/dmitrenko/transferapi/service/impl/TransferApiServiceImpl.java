@@ -44,10 +44,9 @@ import com.dmitrenko.database.service.UserService;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -116,8 +115,8 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteCompany(Long companyId) {
-		companyService.deleteCompany(companyId);
+	public SuccessWrapper deleteCompany(Long companyId) {
+		return new SuccessWrapper(companyService.deleteCompany(companyId));
 	}
 
 	@Override
@@ -267,97 +266,97 @@ public class TransferApiServiceImpl implements TransferApiService {
 
 	@Override
 	public ObjectResponse<ReferenceResponse> addReference(ReferenceAddRequest request) {
-		return null;
+		return ObjectResponse.success(referenceService.addReference(request));
 	}
 
 	@Override
 	public ObjectResponse<ReferenceResponse> getReference(Long referenceId) {
-		return null;
+		return ObjectResponse.success(referenceService.getReference(referenceId));
 	}
 
 	@Override
 	public ListResponse<ReferenceResponse> getAllReferences() {
-		return null;
+		return ListResponse.success(referenceService.getAllReferences());
 	}
 
 	@Override
 	public ObjectResponse<ReferenceResponse> updateReference(Long referenceId, ReferenceUpdateRequest request) {
-		return null;
+		return ObjectResponse.success(referenceService.updateReference(referenceId, request));
 	}
 
 	@Override
 	public void deleteReference(Long referenceId) {
-
+		referenceService.deleteReference(referenceId);
 	}
 
 	@Override
 	public ObjectResponse<ReferenceTypeResponse> addReferenceType(ReferenceTypeAddRequest request) {
-		return null;
+		return ObjectResponse.success(referenceService.addReferenceType(request));
 	}
 
 	@Override
 	public ObjectResponse<ReferenceTypeResponse> getReferenceType(Long typeId) {
-		return null;
+		return ObjectResponse.success(referenceService.getReferenceType(typeId));
 	}
 
 	@Override
 	public ListResponse<ReferenceTypeResponse> getAllReferenceTypes() {
-		return null;
+		return ListResponse.success(referenceService.getAllReferenceTypes());
 	}
 
 	@Override
 	public ObjectResponse<ReferenceTypeResponse> updateReferenceType(Long typeId, ReferenceTypeUpdateRequest request) {
-		return null;
+		return ObjectResponse.success(referenceService.updateReferenceType(typeId, request));
 	}
 
 	@Override
-	public void deleteReferenceType(Long companyId) {
-
+	public void deleteReferenceType(Long typeId) {
+		referenceService.deleteReferenceType(typeId);
 	}
 
 	@Override
 	public ObjectResponse<ReferenceFieldResponse> addReferenceField(ReferenceFieldAddRequest request) {
-		return null;
+		return ObjectResponse.success(referenceService.addReferenceField(request));
 	}
 
 	@Override
 	public ListResponse<ReferenceFieldResponse> addReferenceFields(ReferenceFieldsAddRequest request) {
-		return null;
+		return ListResponse.success(referenceService.addReferenceFields(request));
 	}
 
 	@Override
 	public ObjectResponse<ReferenceFieldResponse> getReferenceField(Long fieldId) {
-		return null;
+		return ObjectResponse.success(referenceService.getReferenceField(fieldId));
 	}
 
 	@Override
 	public ListResponse<ReferenceFieldResponse> getAllReferenceFields() {
-		return null;
+		return ListResponse.success(referenceService.getAllReferenceFields());
 	}
 
 	@Override
 	public ObjectResponse<ReferenceFieldResponse> updateReferenceField(Long typeId, ReferenceFieldUpdateRequest request) {
-		return null;
+		return ObjectResponse.success(referenceService.updateReferenceField(typeId, request));
 	}
 
 	@Override
 	public ListResponse<ReferenceFieldResponse> updateReferenceFields(ReferenceFieldsUpdateRequest request) {
-		return null;
+		return ListResponse.success(referenceService.updateReferenceFields(request));
 	}
 
 	@Override
 	public void deleteReferenceField(Long fieldId) {
-
+		referenceService.deleteReferenceField(fieldId);
 	}
 
 	@Override
 	public void deleteReferenceFields(ReferenceFieldsDeleteRequest request) {
-
+		referenceService.deleteReferenceFields(request);
 	}
 
 	@Override
 	public void deleteAllReferenceFieldsByReferenceId(Long referenceId) {
-
+		referenceService.deleteAllReferenceFieldsByReferenceId(referenceId);
 	}
 
 	@Override
