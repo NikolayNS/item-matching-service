@@ -18,7 +18,7 @@ public interface ModifiedStringDomainService {
 
 	ModifiedStringResponse updateModifiedString(Long modifiedStringId, ModifiedStringRequest request);
 
-	void deleteModifiedString(Long modifiedStringId);
+	boolean deleteModifiedString(Long modifiedStringId);
 
-	void deleteAllModifiedStrings();
+	boolean deleteAllModifiedStrings();
 }

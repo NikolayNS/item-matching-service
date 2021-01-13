@@ -42,12 +42,12 @@ public class ModifiedStringServiceImpl implements ModifiedStringService {
 	}
 
 	@Override
-	public void deleteModifiedString(Long modifiedStringId) {
-		modifiedStringDomainService.deleteModifiedString(modifiedStringId);
+	public boolean deleteModifiedString(Long modifiedStringId) {
+		return modifiedStringDomainService.deleteModifiedString(modifiedStringId);
 	}
 
 	@Override
-	public void deleteAllModifiedStrings() {
-		modifiedStringDomainService.deleteAllModifiedStrings();
+	public boolean deleteAllModifiedStrings() {
+		return modifiedStringDomainService.deleteAllModifiedStrings();
 	}
 }

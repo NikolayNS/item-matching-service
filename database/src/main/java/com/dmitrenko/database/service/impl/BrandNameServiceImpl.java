@@ -42,12 +42,12 @@ public class BrandNameServiceImpl implements BrandNameService {
 	}
 
 	@Override
-	public void deleteBrandName(Long brandNameId) {
-		brandNameDomainService.deleteBrandName(brandNameId);
+	public boolean deleteBrandName(Long brandNameId) {
+		return brandNameDomainService.deleteBrandName(brandNameId);
 	}
 
 	@Override
-	public void deleteAllBrandNames() {
-		brandNameDomainService.deleteAllBrandNames();
+	public boolean deleteAllBrandNames() {
+		return brandNameDomainService.deleteAllBrandNames();
 	}
 }

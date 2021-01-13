@@ -18,7 +18,7 @@ public interface BrandNameDomainService {
 
 	BrandNameResponse updateBrandName(Long brandNameId, BrandNameRequest request);
 
-	void deleteBrandName(Long brandNameId);
+	boolean deleteBrandName(Long brandNameId);
 
-	void deleteAllBrandNames();
+	boolean deleteAllBrandNames();
 }

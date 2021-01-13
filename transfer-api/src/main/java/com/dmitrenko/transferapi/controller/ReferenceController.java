@@ -15,6 +15,7 @@ import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -83,9 +84,9 @@ public class ReferenceController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = REFERENCE, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference by id")
-	public void deleteReference(@PathVariable Long referenceId) {
+	public SuccessWrapper deleteReference(@PathVariable Long referenceId) {
 
-		transferApiService.deleteReference(referenceId);
+		return transferApiService.deleteReference(referenceId);
 	}
 
 	@ResponseStatus(CREATED)
@@ -124,9 +125,9 @@ public class ReferenceController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = REFERENCE_TYPE, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference type by id")
-	public void deleteReferenceType(@PathVariable Long typeId) {
+	public SuccessWrapper deleteReferenceType(@PathVariable Long typeId) {
 
-		transferApiService.deleteReferenceType(typeId);
+		return transferApiService.deleteReferenceType(typeId);
 	}
 
 	@ResponseStatus(CREATED)
@@ -181,24 +182,24 @@ public class ReferenceController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = REFERENCE_FIELD, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference field by id")
-	public void deleteReferenceField(@PathVariable Long fieldId) {
+	public SuccessWrapper deleteReferenceField(@PathVariable Long fieldId) {
 
-		transferApiService.deleteReferenceField(fieldId);
+		return transferApiService.deleteReferenceField(fieldId);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = REFERENCE_FIELDS, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference fields by ids")
-	public void deleteReferenceFields(@RequestBody ReferenceFieldsDeleteRequest request) {
+	public SuccessWrapper deleteReferenceFields(@RequestBody ReferenceFieldsDeleteRequest request) {
 
-		transferApiService.deleteReferenceFields(request);
+		return transferApiService.deleteReferenceFields(request);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = REFERENCE_FIELD_DELETE_BY_REF, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all reference fields by reference id")
-	public void deleteAllReferenceFieldsByReferenceId(@PathVariable Long referenceId) {
+	public SuccessWrapper deleteAllReferenceFieldsByReferenceId(@PathVariable Long referenceId) {
 
-		transferApiService.deleteAllReferenceFieldsByReferenceId(referenceId);
+		return transferApiService.deleteAllReferenceFieldsByReferenceId(referenceId);
 	}
 }

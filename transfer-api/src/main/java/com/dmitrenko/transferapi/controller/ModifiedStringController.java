@@ -6,6 +6,7 @@ import com.dmitrenko.database.dto.response.modifiedstring.ModifiedStringResponse
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -75,16 +76,16 @@ public class ModifiedStringController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = MODIFIED_STRING, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete modified string by id")
-	public void deleteModifiedString(@PathVariable Long modifiedStringId) {
+	public SuccessWrapper deleteModifiedString(@PathVariable Long modifiedStringId) {
 
-		transferApiService.deleteModifiedString(modifiedStringId);
+		return transferApiService.deleteModifiedString(modifiedStringId);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = MODIFIED_STRINGS, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all modified string")
-	public void deleteAllModifiedStrings() {
+	public SuccessWrapper deleteAllModifiedStrings() {
 
-		transferApiService.deleteAllModifiedStrings();
+		return transferApiService.deleteAllModifiedStrings();
 	}
 }

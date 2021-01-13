@@ -13,6 +13,7 @@ import com.dmitrenko.database.dto.response.item.ItemTypeResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -88,17 +89,17 @@ public class ItemController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = ITEM, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete item by id")
-	public void deleteItem(@PathVariable Long itemId) {
+	public SuccessWrapper deleteItem(@PathVariable Long itemId) {
 
-		transferApiService.deleteItem(itemId);
+		return transferApiService.deleteItem(itemId);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = ITEMS, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all items by company id")
-	public void deleteAllItemsByCompany(@PathVariable Long companyId) {
+	public SuccessWrapper deleteAllItemsByCompany(@PathVariable Long companyId) {
 
-		transferApiService.deleteAllItemsByCompany(companyId);
+		return transferApiService.deleteAllItemsByCompany(companyId);
 	}
 
 	@ResponseStatus(CREATED)
@@ -137,9 +138,9 @@ public class ItemController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = ITEM_TYPE, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete item type by id")
-	public void deleteItemType(@PathVariable Long typeId) {
+	public SuccessWrapper deleteItemType(@PathVariable Long typeId) {
 
-		transferApiService.deleteItemType(typeId);
+		return transferApiService.deleteItemType(typeId);
 	}
 
 	@ResponseStatus(CREATED)
@@ -178,8 +179,8 @@ public class ItemController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = ITEM_CURRENCY, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete currency by id")
-	public void deleteCurrency(@PathVariable Long currencyId) {
+	public SuccessWrapper deleteCurrency(@PathVariable Long currencyId) {
 
-		transferApiService.deleteCurrency(currencyId);
+		return transferApiService.deleteCurrency(currencyId);
 	}
 }

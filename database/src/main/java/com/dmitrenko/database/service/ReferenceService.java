@@ -25,7 +25,7 @@ public interface ReferenceService {
 
 	ReferenceResponse updateReference(Long referenceId, ReferenceUpdateRequest request);
 
-	void deleteReference(Long referenceId);
+	boolean deleteReference(Long referenceId);
 
 	ReferenceTypeResponse addReferenceType(ReferenceTypeAddRequest request);
 
@@ -35,7 +35,7 @@ public interface ReferenceService {
 
 	ReferenceTypeResponse updateReferenceType(Long typeId, ReferenceTypeUpdateRequest request);
 
-	void deleteReferenceType(Long companyId);
+	boolean deleteReferenceType(Long typeId);
 
 	ReferenceFieldResponse addReferenceField(ReferenceFieldAddRequest request);
 
@@ -49,9 +49,9 @@ public interface ReferenceService {
 
 	List<ReferenceFieldResponse> updateReferenceFields(ReferenceFieldsUpdateRequest request);
 
-	void deleteReferenceField(Long fieldId);
+	boolean deleteReferenceField(Long fieldId);
 
-	public void deleteReferenceFields(ReferenceFieldsDeleteRequest request);
+	boolean deleteReferenceFields(ReferenceFieldsDeleteRequest request);
 
-	public void deleteAllReferenceFieldsByReferenceId(Long referenceId);
+	boolean deleteAllReferenceFieldsByReferenceId(Long referenceId);
 }

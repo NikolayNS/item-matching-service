@@ -80,15 +80,17 @@ public class ModifiedStringDomainServiceImpl implements ModifiedStringDomainServ
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public void deleteModifiedString(Long modifiedStringId) {
+	public boolean deleteModifiedString(Long modifiedStringId) {
 		var modifiedString = getEntity(modifiedStringId);
 		modifiedStringRepository.delete(modifiedString);
+
+		return !modifiedStringRepository.existsById(modifiedStringId);
 	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public void deleteAllModifiedStrings() {
-
+	public boolean deleteAllModifiedStrings() {
 		modifiedStringRepository.deleteAll();
+		return modifiedStringRepository.findAll().isEmpty();
 	}
 }

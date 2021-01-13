@@ -51,9 +51,9 @@ public interface TransferApiService {
 
 	ObjectResponse<BrandNameResponse> updateBrandName(Long brandNameId, BrandNameRequest request);
 
-	void deleteBrandName(Long brandNameId);
+	SuccessWrapper deleteBrandName(Long brandNameId);
 
-	void deleteAllBrandNames();
+	SuccessWrapper deleteAllBrandNames();
 
 	ObjectResponse<CompanyResponse> addCompany(CompanyRequest request);
 
@@ -73,7 +73,7 @@ public interface TransferApiService {
 
 	ObjectResponse<CompanyTypeResponse> updateCompanyType(Long typeId, CompanyTypeRequest request);
 
-	void deleteCompanyType(Long companyId);
+	SuccessWrapper deleteCompanyType(Long companyId);
 
 	ObjectResponse<ItemResponse> addItem(ItemAddRequest request);
 
@@ -85,9 +85,9 @@ public interface TransferApiService {
 
 	ObjectResponse<ItemResponse> updateItem(Long itemId, ItemUpdateRequest request);
 
-	void deleteItem(Long itemId);
+	SuccessWrapper deleteItem(Long itemId);
 
-	void deleteAllItemsByCompany(Long companyId);
+	SuccessWrapper deleteAllItemsByCompany(Long companyId);
 
 	ObjectResponse<ItemTypeResponse> addItemType(ItemTypeAddRequest request);
 
@@ -97,7 +97,7 @@ public interface TransferApiService {
 
 	ObjectResponse<ItemTypeResponse> updateItemType(Long typeId, ItemTypeUpdateRequest request);
 
-	void deleteItemType(Long typeId);
+	SuccessWrapper deleteItemType(Long typeId);
 
 	ObjectResponse<CurrencyResponse> addCurrency(CurrencyAddRequest request);
 
@@ -107,7 +107,7 @@ public interface TransferApiService {
 
 	ObjectResponse<CurrencyResponse> updateCurrency(Long currencyId, CurrencyUpdateRequest request);
 
-	void deleteCurrency(Long currencyId);
+	SuccessWrapper deleteCurrency(Long currencyId);
 
 	ObjectResponse<ModifiedStringResponse> addModifiedString(ModifiedStringRequest request);
 
@@ -119,9 +119,9 @@ public interface TransferApiService {
 
 	ObjectResponse<ModifiedStringResponse> updateModifiedString(Long modifiedStringId, ModifiedStringRequest request);
 
-	void deleteModifiedString(Long modifiedStringId);
+	SuccessWrapper deleteModifiedString(Long modifiedStringId);
 
-	void deleteAllModifiedStrings();
+	SuccessWrapper deleteAllModifiedStrings();
 
 	ObjectResponse<ReferenceResponse> addReference(ReferenceAddRequest request);
 
@@ -131,7 +131,7 @@ public interface TransferApiService {
 
 	ObjectResponse<ReferenceResponse> updateReference(Long referenceId, ReferenceUpdateRequest request);
 
-	void deleteReference(Long referenceId);
+	SuccessWrapper deleteReference(Long referenceId);
 
 	ObjectResponse<ReferenceTypeResponse> addReferenceType(ReferenceTypeAddRequest request);
 
@@ -141,7 +141,7 @@ public interface TransferApiService {
 
 	ObjectResponse<ReferenceTypeResponse> updateReferenceType(Long typeId, ReferenceTypeUpdateRequest request);
 
-	void deleteReferenceType(Long typeId);
+	SuccessWrapper deleteReferenceType(Long typeId);
 
 	ObjectResponse<ReferenceFieldResponse> addReferenceField(ReferenceFieldAddRequest request);
 
@@ -155,11 +155,11 @@ public interface TransferApiService {
 
 	ListResponse<ReferenceFieldResponse> updateReferenceFields(ReferenceFieldsUpdateRequest request);
 
-	void deleteReferenceField(Long fieldId);
+	SuccessWrapper deleteReferenceField(Long fieldId);
 
-	void deleteReferenceFields(ReferenceFieldsDeleteRequest request);
+	SuccessWrapper deleteReferenceFields(ReferenceFieldsDeleteRequest request);
 
-	void deleteAllReferenceFieldsByReferenceId(Long referenceId);
+	SuccessWrapper deleteAllReferenceFieldsByReferenceId(Long referenceId);
 
 	ObjectResponse<UserResponse> addUser(UserAddRequest request);
 
@@ -169,5 +169,5 @@ public interface TransferApiService {
 
 	ObjectResponse<UserResponse> updateUser(Long userId, UserUpdateRequest request);
 
-	void deleteUser(Long userId);
+	SuccessWrapper deleteUser(Long userId);
 }

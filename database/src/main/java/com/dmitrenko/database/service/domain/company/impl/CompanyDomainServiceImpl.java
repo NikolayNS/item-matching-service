@@ -71,7 +71,6 @@ public class CompanyDomainServiceImpl implements CompanyDomainService {
 	@Transactional(rollbackFor = Exception.class)
 	public boolean deleteCompany(Long companyId) {
 		var company = getEntity(companyId);
-
 		companyRepository.delete(company);
 
 		return !companyRepository.existsById(companyId);

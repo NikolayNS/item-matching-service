@@ -6,6 +6,7 @@ import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,8 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -77,16 +76,16 @@ public class BrandNameController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = BRAND_NAME, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete brand name by id")
-	public void deleteBrandName(@PathVariable Long brandNameId) {
+	public SuccessWrapper deleteBrandName(@PathVariable Long brandNameId) {
 
-		transferApiService.deleteBrandName(brandNameId);
+		return transferApiService.deleteBrandName(brandNameId);
 	}
 
 	@ResponseStatus(OK)
 	@DeleteMapping(value = BRAND_NAMES, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all brand name")
-	public void deleteAllBrandNames() {
+	public SuccessWrapper deleteAllBrandNames() {
 
-		transferApiService.deleteAllBrandNames();
+		return transferApiService.deleteAllBrandNames();
 	}
 }

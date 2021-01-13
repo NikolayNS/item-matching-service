@@ -113,8 +113,8 @@ public class CompanyController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = COMPANY_TYPE, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete company type by id")
-	public void deleteCompanyType(@PathVariable Long typeId) {
+	public SuccessWrapper deleteCompanyType(@PathVariable Long typeId) {
 
-		transferApiService.deleteCompanyType(typeId);
+		return transferApiService.deleteCompanyType(typeId);
 	}
 }

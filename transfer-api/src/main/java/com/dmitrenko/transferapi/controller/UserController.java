@@ -6,6 +6,7 @@ import com.dmitrenko.database.dto.response.user.UserResponse;
 import com.dmitrenko.transferapi.service.TransferApiService;
 import com.dmitrenko.transferapi.wrapper.ListResponse;
 import com.dmitrenko.transferapi.wrapper.ObjectResponse;
+import com.dmitrenko.transferapi.wrapper.SuccessWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -67,8 +68,8 @@ public class UserController {
 	@ResponseStatus(OK)
 	@DeleteMapping(value = USER, consumes = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete user by id")
-	public void deleteUser(@PathVariable Long userId) {
+	public SuccessWrapper deleteUser(@PathVariable Long userId) {
 
-		transferApiService.deleteUser(userId);
+		return transferApiService.deleteUser(userId);
 	}
 }

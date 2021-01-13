@@ -83,15 +83,18 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public void deleteBrandName(Long brandNameId) {
+	public boolean deleteBrandName(Long brandNameId) {
 		var brandName = getEntity(brandNameId);
 		brandNameRepository.delete(brandName);
+
+		return !brandNameRepository.existsById(brandNameId);
 	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public void deleteAllBrandNames() {
-
+	public boolean deleteAllBrandNames() {
 		brandNameRepository.deleteAll();
+
+		return brandNameRepository.findAll().isEmpty();
 	}
 }

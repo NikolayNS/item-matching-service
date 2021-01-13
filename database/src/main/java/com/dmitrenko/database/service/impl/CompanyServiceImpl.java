@@ -65,7 +65,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public void deleteCompanyType(Long companyId) {
-		companyTypeDomainService.deleteCompanyType(companyId);
+	public boolean deleteCompanyType(Long typeId) {
+		return companyTypeDomainService.deleteCompanyType(typeId);
 	}
 }

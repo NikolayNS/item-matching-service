@@ -85,13 +85,13 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteBrandName(Long brandNameId) {
-		brandNameService.deleteBrandName(brandNameId);
+	public SuccessWrapper deleteBrandName(Long brandNameId) {
+		return new SuccessWrapper(brandNameService.deleteBrandName(brandNameId));
 	}
 
 	@Override
-	public void deleteAllBrandNames() {
-		brandNameService.deleteAllBrandNames();
+	public SuccessWrapper deleteAllBrandNames() {
+		return new SuccessWrapper(brandNameService.deleteAllBrandNames());
 	}
 
 	@Override
@@ -140,8 +140,8 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteCompanyType(Long companyId) {
-		companyService.deleteCompanyType(companyId);
+	public SuccessWrapper deleteCompanyType(Long typeId) {
+		return new SuccessWrapper(companyService.deleteCompanyType(typeId));
 	}
 
 	@Override
@@ -170,13 +170,13 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteItem(Long itemId) {
-
+	public SuccessWrapper deleteItem(Long itemId) {
+		return new SuccessWrapper(true);
 	}
 
 	@Override
-	public void deleteAllItemsByCompany(Long companyId) {
-
+	public SuccessWrapper deleteAllItemsByCompany(Long companyId) {
+		return new SuccessWrapper(true);
 	}
 
 	@Override
@@ -200,8 +200,8 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteItemType(Long typeId) {
-
+	public SuccessWrapper deleteItemType(Long typeId) {
+		return new SuccessWrapper(true);
 	}
 
 	@Override
@@ -225,8 +225,8 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteCurrency(Long currencyId) {
-
+	public SuccessWrapper deleteCurrency(Long currencyId) {
+		return new SuccessWrapper(true);
 	}
 
 	@Override
@@ -255,13 +255,13 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteModifiedString(Long modifiedStringId) {
-		modifiedStringService.deleteModifiedString(modifiedStringId);
+	public SuccessWrapper deleteModifiedString(Long modifiedStringId) {
+		return new SuccessWrapper(modifiedStringService.deleteModifiedString(modifiedStringId));
 	}
 
 	@Override
-	public void deleteAllModifiedStrings() {
-		modifiedStringService.deleteAllModifiedStrings();
+	public SuccessWrapper deleteAllModifiedStrings() {
+		return new SuccessWrapper(modifiedStringService.deleteAllModifiedStrings());
 	}
 
 	@Override
@@ -285,8 +285,8 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteReference(Long referenceId) {
-		referenceService.deleteReference(referenceId);
+	public SuccessWrapper deleteReference(Long referenceId) {
+		return new SuccessWrapper(referenceService.deleteReference(referenceId));
 	}
 
 	@Override
@@ -310,8 +310,8 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteReferenceType(Long typeId) {
-		referenceService.deleteReferenceType(typeId);
+	public SuccessWrapper deleteReferenceType(Long typeId) {
+		return new SuccessWrapper(referenceService.deleteReferenceType(typeId));
 	}
 
 	@Override
@@ -345,18 +345,18 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteReferenceField(Long fieldId) {
-		referenceService.deleteReferenceField(fieldId);
+	public SuccessWrapper deleteReferenceField(Long fieldId) {
+		return new SuccessWrapper(referenceService.deleteReferenceField(fieldId));
 	}
 
 	@Override
-	public void deleteReferenceFields(ReferenceFieldsDeleteRequest request) {
-		referenceService.deleteReferenceFields(request);
+	public SuccessWrapper deleteReferenceFields(ReferenceFieldsDeleteRequest request) {
+		return new SuccessWrapper(referenceService.deleteReferenceFields(request));
 	}
 
 	@Override
-	public void deleteAllReferenceFieldsByReferenceId(Long referenceId) {
-		referenceService.deleteAllReferenceFieldsByReferenceId(referenceId);
+	public SuccessWrapper deleteAllReferenceFieldsByReferenceId(Long referenceId) {
+		return new SuccessWrapper(referenceService.deleteAllReferenceFieldsByReferenceId(referenceId));
 	}
 
 	@Override
@@ -380,7 +380,7 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public void deleteUser(Long userId) {
-
+	public SuccessWrapper deleteUser(Long userId) {
+		return new SuccessWrapper(true);
 	}
 }
