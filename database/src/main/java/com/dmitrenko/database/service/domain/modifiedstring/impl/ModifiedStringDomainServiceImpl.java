@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +31,7 @@ public class ModifiedStringDomainServiceImpl implements ModifiedStringDomainServ
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public ModifiedStringResponse addModifiedString(ModifiedStringRequest request) {
+	public ModifiedStringResponse addModifiedString(@Valid ModifiedStringRequest request) {
 		if (modifiedStringRepository.findByModifiable(request.getModifiable()).isPresent())
 			throw new EntityAlreadyExistException(String.format("ModifiedString with modifiable %s already exist", request.getModifiable()));
 
@@ -42,7 +43,7 @@ public class ModifiedStringDomainServiceImpl implements ModifiedStringDomainServ
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public List<ModifiedStringResponse> addModifiedStrings(ModifiedStringsRequest request) {
+	public List<ModifiedStringResponse> addModifiedStrings(@Valid ModifiedStringsRequest request) {
 		return modifiedStringResponseMapper.from(request.getModifiedStrings()
 			.stream()
 			.filter(modifiedStringRequest -> modifiedStringRepository.findByModifiable(modifiedStringRequest.getModifiable()).isEmpty())
@@ -69,7 +70,7 @@ public class ModifiedStringDomainServiceImpl implements ModifiedStringDomainServ
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public ModifiedStringResponse updateModifiedString(Long modifiedStringId, ModifiedStringRequest request) {
+	public ModifiedStringResponse updateModifiedString(Long modifiedStringId, @Valid ModifiedStringRequest request) {
 		var modifiedString = getEntity(modifiedStringId);
 		modifiedString = modifiedStringMerger.merge(modifiedString, request);
 
@@ -81,9 +82,7 @@ public class ModifiedStringDomainServiceImpl implements ModifiedStringDomainServ
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean deleteModifiedString(Long modifiedStringId) {
-		var modifiedString = getEntity(modifiedStringId);
-		modifiedStringRepository.delete(modifiedString);
-
+		modifiedStringRepository.delete(getEntity(modifiedStringId));
 		return !modifiedStringRepository.existsById(modifiedStringId);
 	}
 

@@ -34,7 +34,7 @@ public class Reference extends BaseEntity {
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TYPE_ID")
+	@JoinColumn(name = "TYPE_ID", nullable = false)
 	private ReferenceType type;
 
 	@ToString.Exclude

@@ -1,14 +1,10 @@
 package com.dmitrenko.database.service.impl;
 
-import com.dmitrenko.database.dto.request.reference.ReferenceAddRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldAddRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldUpdateRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldsAddRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldsDeleteRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceTypeAddRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceTypeUpdateRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceUpdateRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceFieldRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceFieldsRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
 import com.dmitrenko.database.dto.response.reference.ReferenceFieldResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
@@ -30,7 +26,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	private final ReferenceFieldDomainService referenceFieldDomainService;
 
 	@Override
-	public ReferenceResponse addReference(ReferenceAddRequest request) {
+	public ReferenceResponse addReference(ReferenceRequest request) {
 		return referenceDomainService.addReference(request);
 	}
 
@@ -45,7 +41,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	}
 
 	@Override
-	public ReferenceResponse updateReference(Long referenceId, ReferenceUpdateRequest request) {
+	public ReferenceResponse updateReference(Long referenceId, ReferenceRequest request) {
 		return referenceDomainService.updateReference(referenceId, request);
 	}
 
@@ -55,7 +51,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	}
 
 	@Override
-	public ReferenceTypeResponse addReferenceType(ReferenceTypeAddRequest request) {
+	public ReferenceTypeResponse addReferenceType(ReferenceTypeRequest request) {
 		return referenceTypeDomainService.addReferenceType(request);
 	}
 
@@ -70,7 +66,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	}
 
 	@Override
-	public ReferenceTypeResponse updateReferenceType(Long typeId, ReferenceTypeUpdateRequest request) {
+	public ReferenceTypeResponse updateReferenceType(Long typeId, ReferenceTypeRequest request) {
 		return referenceTypeDomainService.updateReferenceType(typeId, request);
 	}
 
@@ -80,12 +76,12 @@ public class ReferenceServiceImpl implements ReferenceService {
 	}
 
 	@Override
-	public ReferenceFieldResponse addReferenceField(ReferenceFieldAddRequest request) {
+	public ReferenceFieldResponse addReferenceField(ReferenceFieldRequest request) {
 		return referenceFieldDomainService.addReferenceField(request);
 	}
 
 	@Override
-	public List<ReferenceFieldResponse> addReferenceFields(ReferenceFieldsAddRequest request) {
+	public List<ReferenceFieldResponse> addReferenceFields(ReferenceFieldsRequest request) {
 		return referenceFieldDomainService.addReferenceFields(request);
 	}
 
@@ -100,8 +96,8 @@ public class ReferenceServiceImpl implements ReferenceService {
 	}
 
 	@Override
-	public ReferenceFieldResponse updateReferenceField(Long typeId, ReferenceFieldUpdateRequest request) {
-		return referenceFieldDomainService.updateReferenceField(typeId, request);
+	public ReferenceFieldResponse updateReferenceField(Long fieldId, ReferenceFieldRequest request) {
+		return referenceFieldDomainService.updateReferenceField(fieldId, request);
 	}
 
 	@Override
@@ -112,11 +108,6 @@ public class ReferenceServiceImpl implements ReferenceService {
 	@Override
 	public boolean deleteReferenceField(Long fieldId) {
 		return referenceFieldDomainService.deleteReferenceField(fieldId);
-	}
-
-	@Override
-	public boolean deleteReferenceFields(ReferenceFieldsDeleteRequest request) {
-		return referenceFieldDomainService.deleteReferenceFields(request);
 	}
 
 	@Override

@@ -84,9 +84,7 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean deleteBrandName(Long brandNameId) {
-		var brandName = getEntity(brandNameId);
-		brandNameRepository.delete(brandName);
-
+		brandNameRepository.delete(getEntity(brandNameId));
 		return !brandNameRepository.existsById(brandNameId);
 	}
 
@@ -94,7 +92,6 @@ public class BrandNameDomainServiceImpl implements BrandNameDomainService {
 	@Transactional(rollbackFor = Exception.class)
 	public boolean deleteAllBrandNames() {
 		brandNameRepository.deleteAll();
-
 		return brandNameRepository.findAll().isEmpty();
 	}
 }
