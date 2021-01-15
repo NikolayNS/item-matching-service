@@ -13,13 +13,12 @@ import com.dmitrenko.database.dto.request.item.ItemUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
 import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringRequest;
 import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldsRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
-import com.dmitrenko.database.dto.request.user.UserAddRequest;
-import com.dmitrenko.database.dto.request.user.UserUpdateRequest;
+import com.dmitrenko.database.dto.request.user.UserRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
@@ -155,13 +154,13 @@ public interface TransferApiService {
 
 	SuccessWrapper deleteAllReferenceFieldsByReferenceId(Long referenceId);
 
-	ObjectResponse<UserResponse> addUser(UserAddRequest request);
+	ObjectResponse<UserResponse> addUser(UserRequest request);
 
 	ObjectResponse<UserResponse> getUser(Long userId);
 
 	ListResponse<UserResponse> getAllUsers();
 
-	ObjectResponse<UserResponse> updateUser(Long userId, UserUpdateRequest request);
+	ObjectResponse<UserResponse> updateUser(Long userId, UserRequest request);
 
 	SuccessWrapper deleteUser(Long userId);
 }

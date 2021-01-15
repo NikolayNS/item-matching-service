@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -11,12 +13,13 @@ import javax.validation.constraints.NotNull;
 @Validated
 public class ReferenceFieldRequest {
 
-	@NotNull
+	@NotBlank(message = "The [barcode] parameter must be specified. ")
 	private String barcode;
 
-	@NotNull
+	@NotBlank(message = "The [name] parameter must be specified. ")
 	private String name;
 
-	@NotNull
+	@NotNull(message = "The [referenceId] parameter shouldn't be null")
+	@Min(1)
 	private Long referenceId;
 }

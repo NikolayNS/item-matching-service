@@ -1,9 +1,9 @@
 package com.dmitrenko.transfer.api.controller;
 
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldsRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
 import com.dmitrenko.database.dto.response.reference.ReferenceFieldResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceResponse;

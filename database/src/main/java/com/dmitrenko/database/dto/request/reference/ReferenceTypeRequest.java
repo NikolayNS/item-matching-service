@@ -4,16 +4,16 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @Accessors(chain = true)
 @Validated
 public class ReferenceTypeRequest {
 
-	@NotNull
+	@NotBlank(message = "The [name] parameter must be specified. ")
 	private String name;
 
-	@NotNull
+	@NotBlank(message = "The [description] parameter must be specified. ")
 	private String description;
 }

@@ -13,13 +13,12 @@ import com.dmitrenko.database.dto.request.item.ItemUpdateRequest;
 import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
 import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringRequest;
 import com.dmitrenko.database.dto.request.modifiedstring.ModifiedStringsRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
-import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceFieldsRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceFieldsUpdateRequest;
+import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
-import com.dmitrenko.database.dto.request.user.UserAddRequest;
-import com.dmitrenko.database.dto.request.user.UserUpdateRequest;
+import com.dmitrenko.database.dto.request.user.UserRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
 import com.dmitrenko.database.dto.response.company.CompanyResponse;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
@@ -351,27 +350,27 @@ public class TransferApiServiceImpl implements TransferApiService {
 	}
 
 	@Override
-	public ObjectResponse<UserResponse> addUser(UserAddRequest request) {
-		return null;
+	public ObjectResponse<UserResponse> addUser(UserRequest request) {
+		return ObjectResponse.success(userService.addUser(request));
 	}
 
 	@Override
 	public ObjectResponse<UserResponse> getUser(Long userId) {
-		return null;
+		return ObjectResponse.success(userService.getUser(userId));
 	}
 
 	@Override
 	public ListResponse<UserResponse> getAllUsers() {
-		return null;
+		return ListResponse.success(userService.getAllUsers());
 	}
 
 	@Override
-	public ObjectResponse<UserResponse> updateUser(Long userId, UserUpdateRequest request) {
-		return null;
+	public ObjectResponse<UserResponse> updateUser(Long userId, UserRequest request) {
+		return ObjectResponse.success(userService.updateUser(userId, request));
 	}
 
 	@Override
 	public SuccessWrapper deleteUser(Long userId) {
-		return new SuccessWrapper(true);
+		return new SuccessWrapper(userService.deleteUser(userId));
 	}
 }

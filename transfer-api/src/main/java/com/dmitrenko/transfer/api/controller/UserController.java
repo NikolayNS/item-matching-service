@@ -1,7 +1,6 @@
 package com.dmitrenko.transfer.api.controller;
 
-import com.dmitrenko.database.dto.request.user.UserAddRequest;
-import com.dmitrenko.database.dto.request.user.UserUpdateRequest;
+import com.dmitrenko.database.dto.request.user.UserRequest;
 import com.dmitrenko.database.dto.response.user.UserResponse;
 import com.dmitrenko.transfer.api.service.TransferApiService;
 import com.dmitrenko.transfer.api.wrapper.ListResponse;
@@ -35,7 +34,7 @@ public class UserController {
 	@ResponseStatus(CREATED)
 	@PostMapping(value = USER_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add user")
-	public ObjectResponse<UserResponse> addUser(@RequestBody UserAddRequest request) {
+	public ObjectResponse<UserResponse> addUser(@RequestBody UserRequest request) {
 
 		return transferApiService.addUser(request);
 	}
@@ -60,7 +59,7 @@ public class UserController {
 	@PatchMapping(value = USER, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update user by id")
 	public ObjectResponse<UserResponse> updateUser(@PathVariable Long userId,
-												   @RequestBody UserUpdateRequest request) {
+												   @RequestBody UserRequest request) {
 
 		return transferApiService.updateUser(userId, request);
 	}
