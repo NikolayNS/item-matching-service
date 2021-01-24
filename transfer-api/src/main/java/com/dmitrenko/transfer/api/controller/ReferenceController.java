@@ -8,7 +8,7 @@ import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
 import com.dmitrenko.database.dto.response.reference.ReferenceFieldResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
-import com.dmitrenko.transfer.api.service.TransferApiService;
+import com.dmitrenko.transfer.api.service.ReferenceService;
 import com.dmitrenko.transfer.api.wrapper.ListResponse;
 import com.dmitrenko.transfer.api.wrapper.ObjectResponse;
 import com.dmitrenko.transfer.api.wrapper.SuccessWrapper;
@@ -42,14 +42,14 @@ public class ReferenceController {
 	public static final String REFERENCE_FIELD = "/api/v1/reference/field/{fieldId}";
 	public static final String REFERENCE_FIELD_DELETE_BY_REF = "/api/v1/reference/{referenceId}/fields";
 
-	private final TransferApiService transferApiService;
+	private final ReferenceService referenceService;
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = REFERENCE_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add reference")
 	public ObjectResponse<ReferenceResponse> addReference(@RequestBody ReferenceRequest request) {
 
-		return transferApiService.addReference(request);
+		return referenceService.addReference(request);
 	}
 
 	@ResponseStatus(OK)
@@ -57,7 +57,7 @@ public class ReferenceController {
 	@Operation(description = "Get reference by id")
 	public ObjectResponse<ReferenceResponse> getReference(@PathVariable Long referenceId) {
 
-		return transferApiService.getReference(referenceId);
+		return referenceService.getReference(referenceId);
 	}
 
 	@ResponseStatus(OK)
@@ -65,7 +65,7 @@ public class ReferenceController {
 	@Operation(description = "Get all references")
 	public ListResponse<ReferenceResponse> getAllReferences() {
 
-		return transferApiService.getAllReferences();
+		return referenceService.getAllReferences();
 	}
 
 	@ResponseStatus(OK)
@@ -74,15 +74,15 @@ public class ReferenceController {
 	public ObjectResponse<ReferenceResponse> updateReference(@PathVariable Long referenceId,
 															 @RequestBody ReferenceRequest request) {
 
-		return transferApiService.updateReference(referenceId, request);
+		return referenceService.updateReference(referenceId, request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = REFERENCE, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = REFERENCE, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference by id")
 	public SuccessWrapper deleteReference(@PathVariable Long referenceId) {
 
-		return transferApiService.deleteReference(referenceId);
+		return referenceService.deleteReference(referenceId);
 	}
 
 	@ResponseStatus(CREATED)
@@ -90,7 +90,7 @@ public class ReferenceController {
 	@Operation(description = "Add reference type")
 	public ObjectResponse<ReferenceTypeResponse> addReferenceType(@RequestBody ReferenceTypeRequest request) {
 
-		return transferApiService.addReferenceType(request);
+		return referenceService.addReferenceType(request);
 	}
 
 	@ResponseStatus(OK)
@@ -98,7 +98,7 @@ public class ReferenceController {
 	@Operation(description = "Get reference type by id")
 	public ObjectResponse<ReferenceTypeResponse> getReferenceType(@PathVariable Long typeId) {
 
-		return transferApiService.getReferenceType(typeId);
+		return referenceService.getReferenceType(typeId);
 	}
 
 	@ResponseStatus(OK)
@@ -106,7 +106,7 @@ public class ReferenceController {
 	@Operation(description = "Get all reference types")
 	public ListResponse<ReferenceTypeResponse> getAllReferenceTypes() {
 
-		return transferApiService.getAllReferenceTypes();
+		return referenceService.getAllReferenceTypes();
 	}
 
 	@ResponseStatus(OK)
@@ -115,15 +115,15 @@ public class ReferenceController {
 	public ObjectResponse<ReferenceTypeResponse> updateReferenceType(@PathVariable Long typeId,
 																	 @RequestBody ReferenceTypeRequest request) {
 
-		return transferApiService.updateReferenceType(typeId, request);
+		return referenceService.updateReferenceType(typeId, request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = REFERENCE_TYPE, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = REFERENCE_TYPE, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference type by id")
 	public SuccessWrapper deleteReferenceType(@PathVariable Long typeId) {
 
-		return transferApiService.deleteReferenceType(typeId);
+		return referenceService.deleteReferenceType(typeId);
 	}
 
 	@ResponseStatus(CREATED)
@@ -131,7 +131,7 @@ public class ReferenceController {
 	@Operation(description = "Add reference field")
 	public ObjectResponse<ReferenceFieldResponse> addReferenceField(@RequestBody ReferenceFieldRequest request) {
 
-		return transferApiService.addReferenceField(request);
+		return referenceService.addReferenceField(request);
 	}
 
 	@ResponseStatus(CREATED)
@@ -139,7 +139,7 @@ public class ReferenceController {
 	@Operation(description = "Add reference fields")
 	public ListResponse<ReferenceFieldResponse> addReferenceFields(@RequestBody ReferenceFieldsRequest request) {
 
-		return transferApiService.addReferenceFields(request);
+		return referenceService.addReferenceFields(request);
 	}
 
 	@ResponseStatus(OK)
@@ -147,7 +147,7 @@ public class ReferenceController {
 	@Operation(description = "Get reference field by id")
 	public ObjectResponse<ReferenceFieldResponse> getReferenceField(@PathVariable Long fieldId) {
 
-		return transferApiService.getReferenceField(fieldId);
+		return referenceService.getReferenceField(fieldId);
 	}
 
 	@ResponseStatus(OK)
@@ -155,7 +155,7 @@ public class ReferenceController {
 	@Operation(description = "Get all reference fields")
 	public ListResponse<ReferenceFieldResponse> getAllReferenceFields() {
 
-		return transferApiService.getAllReferenceFields();
+		return referenceService.getAllReferenceFields();
 	}
 
 	@ResponseStatus(OK)
@@ -164,7 +164,7 @@ public class ReferenceController {
 	public ObjectResponse<ReferenceFieldResponse> updateReferenceField(@PathVariable Long fieldId,
 																	   @RequestBody ReferenceFieldRequest request) {
 
-		return transferApiService.updateReferenceField(fieldId, request);
+		return referenceService.updateReferenceField(fieldId, request);
 	}
 
 	@ResponseStatus(OK)
@@ -172,22 +172,22 @@ public class ReferenceController {
 	@Operation(description = "Update all reference fields")
 	public ListResponse<ReferenceFieldResponse> updateReferenceFields(@RequestBody ReferenceFieldsUpdateRequest request) {
 
-		return transferApiService.updateReferenceFields(request);
+		return referenceService.updateReferenceFields(request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = REFERENCE_FIELD, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = REFERENCE_FIELD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete reference field by id")
 	public SuccessWrapper deleteReferenceField(@PathVariable Long fieldId) {
 
-		return transferApiService.deleteReferenceField(fieldId);
+		return referenceService.deleteReferenceField(fieldId);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = REFERENCE_FIELD_DELETE_BY_REF, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = REFERENCE_FIELD_DELETE_BY_REF, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all reference fields by reference id")
 	public SuccessWrapper deleteAllReferenceFieldsByReferenceId(@PathVariable Long referenceId) {
 
-		return transferApiService.deleteAllReferenceFieldsByReferenceId(referenceId);
+		return referenceService.deleteAllReferenceFieldsByReferenceId(referenceId);
 	}
 }

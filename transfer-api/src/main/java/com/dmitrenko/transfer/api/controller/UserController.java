@@ -2,7 +2,7 @@ package com.dmitrenko.transfer.api.controller;
 
 import com.dmitrenko.database.dto.request.user.UserRequest;
 import com.dmitrenko.database.dto.response.user.UserResponse;
-import com.dmitrenko.transfer.api.service.TransferApiService;
+import com.dmitrenko.transfer.api.service.UserService;
 import com.dmitrenko.transfer.api.wrapper.ListResponse;
 import com.dmitrenko.transfer.api.wrapper.ObjectResponse;
 import com.dmitrenko.transfer.api.wrapper.SuccessWrapper;
@@ -29,14 +29,14 @@ public class UserController {
 	public static final String USERS = "/api/v1/users";
 	public static final String USER = "/api/v1/user/{userId}";
 
-	private final TransferApiService transferApiService;
+	private final UserService userService;
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = USER_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add user")
 	public ObjectResponse<UserResponse> addUser(@RequestBody UserRequest request) {
 
-		return transferApiService.addUser(request);
+		return userService.addUser(request);
 	}
 
 	@ResponseStatus(OK)
@@ -44,7 +44,7 @@ public class UserController {
 	@Operation(description = "Get user by id")
 	public ObjectResponse<UserResponse> getUser(@PathVariable Long userId) {
 
-		return transferApiService.getUser(userId);
+		return userService.getUser(userId);
 	}
 
 	@ResponseStatus(OK)
@@ -52,7 +52,7 @@ public class UserController {
 	@Operation(description = "Get all users")
 	public ListResponse<UserResponse> getAllUsers() {
 
-		return transferApiService.getAllUsers();
+		return userService.getAllUsers();
 	}
 
 	@ResponseStatus(OK)
@@ -61,14 +61,14 @@ public class UserController {
 	public ObjectResponse<UserResponse> updateUser(@PathVariable Long userId,
 												   @RequestBody UserRequest request) {
 
-		return transferApiService.updateUser(userId, request);
+		return userService.updateUser(userId, request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = USER, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = USER, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete user by id")
 	public SuccessWrapper deleteUser(@PathVariable Long userId) {
 
-		return transferApiService.deleteUser(userId);
+		return userService.deleteUser(userId);
 	}
 }

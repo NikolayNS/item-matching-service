@@ -3,7 +3,7 @@ package com.dmitrenko.transfer.api.controller;
 import com.dmitrenko.database.dto.request.brandname.BrandNameRequest;
 import com.dmitrenko.database.dto.request.brandname.BrandNamesRequest;
 import com.dmitrenko.database.dto.response.brandname.BrandNameResponse;
-import com.dmitrenko.transfer.api.service.TransferApiService;
+import com.dmitrenko.transfer.api.service.BrandNameService;
 import com.dmitrenko.transfer.api.wrapper.ListResponse;
 import com.dmitrenko.transfer.api.wrapper.ObjectResponse;
 import com.dmitrenko.transfer.api.wrapper.SuccessWrapper;
@@ -30,14 +30,14 @@ public class BrandNameController {
 	public static final String BRAND_NAMES = "/api/v1/brand-names";
 	public static final String BRAND_NAME = "/api/v1/brand-name/{brandNameId}";
 
-	private final TransferApiService transferApiService;
+	private final BrandNameService brandNameService;
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = BRAND_NAME_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add brand name")
 	public ObjectResponse<BrandNameResponse> addBrandName(@RequestBody BrandNameRequest request) {
 
-		return transferApiService.addBrandName(request);
+		return brandNameService.addBrandName(request);
 	}
 
 	@ResponseStatus(OK)
@@ -45,7 +45,7 @@ public class BrandNameController {
 	@Operation(description = "Add brand names")
 	public ListResponse<BrandNameResponse> addBrandNames(@RequestBody BrandNamesRequest request) {
 
-		return transferApiService.addBrandNames(request);
+		return brandNameService.addBrandNames(request);
 	}
 
 	@ResponseStatus(OK)
@@ -53,7 +53,7 @@ public class BrandNameController {
 	@Operation(description = "Get brand name by id")
 	public ObjectResponse<BrandNameResponse> getBrandName(@PathVariable Long brandNameId) {
 
-		return transferApiService.getBrandName(brandNameId);
+		return brandNameService.getBrandName(brandNameId);
 	}
 
 	@ResponseStatus(OK)
@@ -61,7 +61,7 @@ public class BrandNameController {
 	@Operation(description = "Get all brand names")
 	public ListResponse<BrandNameResponse> getAllBrandNames() {
 
-		return transferApiService.getAllBrandNames();
+		return brandNameService.getAllBrandNames();
 	}
 
 	@ResponseStatus(OK)
@@ -70,22 +70,22 @@ public class BrandNameController {
 	public ObjectResponse<BrandNameResponse> updateBrandName(@PathVariable Long brandNameId,
 															 @RequestBody BrandNameRequest request) {
 
-		return transferApiService.updateBrandName(brandNameId, request);
+		return brandNameService.updateBrandName(brandNameId, request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = BRAND_NAME, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = BRAND_NAME, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete brand name by id")
 	public SuccessWrapper deleteBrandName(@PathVariable Long brandNameId) {
 
-		return transferApiService.deleteBrandName(brandNameId);
+		return brandNameService.deleteBrandName(brandNameId);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = BRAND_NAMES, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = BRAND_NAMES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all brand name")
 	public SuccessWrapper deleteAllBrandNames() {
 
-		return transferApiService.deleteAllBrandNames();
+		return brandNameService.deleteAllBrandNames();
 	}
 }

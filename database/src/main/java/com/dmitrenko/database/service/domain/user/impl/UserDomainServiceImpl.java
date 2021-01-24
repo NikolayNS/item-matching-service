@@ -9,6 +9,7 @@ import com.dmitrenko.database.mapper.impl.domain.user.UserMerger;
 import com.dmitrenko.database.mapper.impl.response.user.UserResponseMapper;
 import com.dmitrenko.database.repository.UserRepository;
 import com.dmitrenko.database.service.domain.user.UserDomainService;
+import com.dmitrenko.database.util.Constant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +32,7 @@ public class UserDomainServiceImpl implements UserDomainService {
 	@Transactional(rollbackFor = Exception.class)
 	public UserResponse addUser(@Valid UserRequest request) {
 		if (userRepository.findByName(request.getName()).isPresent())
-			throw new EntityAlreadyExistException(String.format("User with name %s already exist", request.getName()));
+			throw new EntityAlreadyExistException(String.format(Constant.USER_ALREADY_EXIST, request.getName()));
 
 		var user = userMapper.from(request);
 		user = userRepository.saveAndFlush(user);
@@ -40,16 +41,18 @@ public class UserDomainServiceImpl implements UserDomainService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public UserResponse getUser(Long userId) {
 		return userResponseMapper.from(getEntity(userId));
 	}
 
 	private User getEntity(Long id) {
 		return userRepository.findById(id)
-			.orElseThrow(() -> new EntityNotFoundException(String.format("User with id %s not found", id)));
+			.orElseThrow(() -> new EntityNotFoundException(String.format(Constant.USER_NOT_FOUND, id)));
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<UserResponse> getAllUsers() {
 		return userResponseMapper.from(userRepository.findAll());
 	}

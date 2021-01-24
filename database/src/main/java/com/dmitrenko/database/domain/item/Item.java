@@ -40,11 +40,11 @@ public class Item extends BaseEntity {
 	private Price price;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TYPE_ID")
+	@JoinColumn(name = "TYPE_ID", nullable = false)
 	private ItemType type;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "COMPANY_ID")
+	@JoinColumn(name = "COMPANY_ID", nullable = false)
 	private Company company;
 
 	@ManyToOne(fetch = FetchType.LAZY)

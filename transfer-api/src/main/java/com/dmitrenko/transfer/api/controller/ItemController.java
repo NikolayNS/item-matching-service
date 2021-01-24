@@ -1,16 +1,12 @@
 package com.dmitrenko.transfer.api.controller;
 
-import com.dmitrenko.database.dto.request.item.CurrencyAddRequest;
-import com.dmitrenko.database.dto.request.item.CurrencyUpdateRequest;
-import com.dmitrenko.database.dto.request.item.ItemAddRequest;
-import com.dmitrenko.database.dto.request.item.ItemTypeAddRequest;
-import com.dmitrenko.database.dto.request.item.ItemTypeUpdateRequest;
-import com.dmitrenko.database.dto.request.item.ItemUpdateRequest;
+import com.dmitrenko.database.dto.request.item.ItemRequest;
+import com.dmitrenko.database.dto.request.item.ItemTypeRequest;
 import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
-import com.dmitrenko.database.dto.response.item.CurrencyResponse;
+import com.dmitrenko.database.dto.request.item.ItemsUpdateRequest;
 import com.dmitrenko.database.dto.response.item.ItemResponse;
 import com.dmitrenko.database.dto.response.item.ItemTypeResponse;
-import com.dmitrenko.transfer.api.service.TransferApiService;
+import com.dmitrenko.transfer.api.service.ItemService;
 import com.dmitrenko.transfer.api.wrapper.ListResponse;
 import com.dmitrenko.transfer.api.wrapper.ObjectResponse;
 import com.dmitrenko.transfer.api.wrapper.SuccessWrapper;
@@ -39,26 +35,23 @@ public class ItemController {
 	public static final String ITEM_TYPE_ADD = "/api/v1/item/type";
 	public static final String ITEM_TYPES = "/api/v1/item/types";
 	public static final String ITEM_TYPE = "/api/v1/item/type/{typeId}";
-	public static final String ITEM_CURRENCY_ADD = "/api/v1/item/currency";
-	public static final String ITEM_CURRENCIES = "/api/v1/item/currencies";
-	public static final String ITEM_CURRENCY = "/api/v1/item/currency/{currencyId}";
 
-	private final TransferApiService transferApiService;
+	private final ItemService itemService;
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = ITEM_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add item to company")
-	public ObjectResponse<ItemResponse> addItem(@RequestBody ItemAddRequest request) {
+	public ObjectResponse<ItemResponse> addItem(@RequestBody ItemRequest request) {
 
-		return transferApiService.addItem(request);
+		return itemService.addItem(request);
 	}
 
 	@ResponseStatus(OK)
-	@GetMapping(value = ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	@PostMapping(value = ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add items to company")
 	public ListResponse<ItemResponse> addItems(@RequestBody ItemsAddRequest request) {
 
-		return transferApiService.addItems(request);
+		return itemService.addItems(request);
 	}
 
 	@ResponseStatus(OK)
@@ -66,7 +59,7 @@ public class ItemController {
 	@Operation(description = "Get item by id")
 	public ObjectResponse<ItemResponse> getItem(@PathVariable Long itemId) {
 
-		return transferApiService.getItem(itemId);
+		return itemService.getItem(itemId);
 	}
 
 	@ResponseStatus(OK)
@@ -74,40 +67,48 @@ public class ItemController {
 	@Operation(description = "Get all items by company id")
 	public ListResponse<ItemResponse> getAllItemsByCompany(@PathVariable Long companyId) {
 
-		return transferApiService.getAllItemsByCompany(companyId);
+		return itemService.getAllItemsByCompany(companyId);
 	}
 
 	@ResponseStatus(OK)
 	@PatchMapping(value = ITEM, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update item by id")
 	public ObjectResponse<ItemResponse> updateItem(@PathVariable Long itemId,
-												   @RequestBody ItemUpdateRequest request) {
+												   @RequestBody ItemRequest request) {
 
-		return transferApiService.updateItem(itemId, request);
+		return itemService.updateItem(itemId, request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = ITEM, consumes = APPLICATION_JSON_VALUE)
+	@PatchMapping(value = ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	@Operation(description = "Update company items")
+	public ListResponse<ItemResponse> updateItems(@RequestBody ItemsUpdateRequest request) {
+
+		return itemService.updateItems(request);
+	}
+
+	@ResponseStatus(OK)
+	@DeleteMapping(value = ITEM, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete item by id")
 	public SuccessWrapper deleteItem(@PathVariable Long itemId) {
 
-		return transferApiService.deleteItem(itemId);
+		return itemService.deleteItem(itemId);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = ITEMS, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = ITEMS, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete all items by company id")
 	public SuccessWrapper deleteAllItemsByCompany(@PathVariable Long companyId) {
 
-		return transferApiService.deleteAllItemsByCompany(companyId);
+		return itemService.deleteAllItemsByCompany(companyId);
 	}
 
 	@ResponseStatus(CREATED)
 	@PostMapping(value = ITEM_TYPE_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Add item type")
-	public ObjectResponse<ItemTypeResponse> addItemType(@RequestBody ItemTypeAddRequest request) {
+	public ObjectResponse<ItemTypeResponse> addItemType(@RequestBody ItemTypeRequest request) {
 
-		return transferApiService.addItemType(request);
+		return itemService.addItemType(request);
 	}
 
 	@ResponseStatus(OK)
@@ -115,7 +116,7 @@ public class ItemController {
 	@Operation(description = "Get item type by id")
 	public ObjectResponse<ItemTypeResponse> getItemType(@PathVariable Long typeId) {
 
-		return transferApiService.getItemType(typeId);
+		return itemService.getItemType(typeId);
 	}
 
 	@ResponseStatus(OK)
@@ -123,64 +124,23 @@ public class ItemController {
 	@Operation(description = "Get all item types")
 	public ListResponse<ItemTypeResponse> getAllItemTypes() {
 
-		return transferApiService.getAllItemTypes();
+		return itemService.getAllItemTypes();
 	}
 
 	@ResponseStatus(OK)
 	@PatchMapping(value = ITEM_TYPE, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Update item type by id")
 	public ObjectResponse<ItemTypeResponse> updateItemType(@PathVariable Long typeId,
-														   @RequestBody ItemTypeUpdateRequest request) {
+														   @RequestBody ItemTypeRequest request) {
 
-		return transferApiService.updateItemType(typeId, request);
+		return itemService.updateItemType(typeId, request);
 	}
 
 	@ResponseStatus(OK)
-	@DeleteMapping(value = ITEM_TYPE, consumes = APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = ITEM_TYPE, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
 	@Operation(description = "Delete item type by id")
 	public SuccessWrapper deleteItemType(@PathVariable Long typeId) {
 
-		return transferApiService.deleteItemType(typeId);
-	}
-
-	@ResponseStatus(CREATED)
-	@PostMapping(value = ITEM_CURRENCY_ADD, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	@Operation(description = "Add currency")
-	public ObjectResponse<CurrencyResponse> addCurrency(@RequestBody CurrencyAddRequest request) {
-
-		return transferApiService.addCurrency(request);
-	}
-
-	@ResponseStatus(OK)
-	@GetMapping(value = ITEM_CURRENCY, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	@Operation(description = "Get currency by id")
-	public ObjectResponse<CurrencyResponse> getCurrency(@PathVariable Long currencyId) {
-
-		return transferApiService.getCurrency(currencyId);
-	}
-
-	@ResponseStatus(OK)
-	@GetMapping(value = ITEM_CURRENCIES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	@Operation(description = "Get all currencies")
-	public ListResponse<CurrencyResponse> getAllCurrencies() {
-
-		return transferApiService.getAllCurrencies();
-	}
-
-	@ResponseStatus(OK)
-	@PatchMapping(value = ITEM_CURRENCY, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-	@Operation(description = "Update currency by id")
-	public ObjectResponse<CurrencyResponse> updateCurrency(@PathVariable Long currencyId,
-														   @RequestBody CurrencyUpdateRequest request) {
-
-		return transferApiService.updateCurrency(currencyId, request);
-	}
-
-	@ResponseStatus(OK)
-	@DeleteMapping(value = ITEM_CURRENCY, consumes = APPLICATION_JSON_VALUE)
-	@Operation(description = "Delete currency by id")
-	public SuccessWrapper deleteCurrency(@PathVariable Long currencyId) {
-
-		return transferApiService.deleteCurrency(currencyId);
+		return itemService.deleteItemType(typeId);
 	}
 }

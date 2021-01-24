@@ -5,5 +5,5 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class CurrencyAddRequest {
+public class ItemsUpdateRequest {
 }

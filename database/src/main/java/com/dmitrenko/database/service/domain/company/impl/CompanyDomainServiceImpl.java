@@ -9,6 +9,7 @@ import com.dmitrenko.database.mapper.impl.domain.company.CompanyMerger;
 import com.dmitrenko.database.mapper.impl.response.company.CompanyResponseMapper;
 import com.dmitrenko.database.repository.CompanyRepository;
 import com.dmitrenko.database.service.domain.company.CompanyDomainService;
+import com.dmitrenko.database.util.Constant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +32,7 @@ public class CompanyDomainServiceImpl implements CompanyDomainService {
 	@Transactional(rollbackFor = Exception.class)
 	public CompanyResponse addCompany(@Valid CompanyRequest request) {
 		if (companyRepository.findByName(request.getName()).isPresent())
-			throw new EntityAlreadyExistException(String.format("Company with name %s already exist", request.getName()));
+			throw new EntityAlreadyExistException(String.format(Constant.COMPANY_ALREADY_EXIST, request.getName()));
 
 		var company = companyMapper.from(request);
 		company = companyRepository.saveAndFlush(company);
@@ -47,7 +48,7 @@ public class CompanyDomainServiceImpl implements CompanyDomainService {
 
 	private Company getEntity(Long id) {
 		return companyRepository.findById(id)
-			.orElseThrow(() -> new EntityNotFoundException(String.format("Company with id %s not found", id)));
+			.orElseThrow(() -> new EntityNotFoundException(String.format(Constant.COMPANY_NOT_FOUND, id)));
 	}
 
 	@Override
