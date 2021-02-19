@@ -13,7 +13,6 @@ public class ReferenceMerger implements Merger<Reference, ReferenceRequest> {
 	@Override
 	public Reference merge(Reference target, ReferenceRequest source) {
 		return target
-			.setName(source.getName())
-			.setType(new ReferenceType(source.getTypeId()));
+			.setName(source.getName());
 	}
 }

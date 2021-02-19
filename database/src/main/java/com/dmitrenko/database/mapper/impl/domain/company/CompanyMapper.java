@@ -13,7 +13,6 @@ public class CompanyMapper implements Mapper<Company, CompanyRequest> {
 	@Override
 	public Company from(CompanyRequest source) {
 		return new Company()
-			.setName(source.getName())
-			.setType(new CompanyType(source.getTypeId()));
+			.setName(source.getName());
 	}
 }

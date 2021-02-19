@@ -10,14 +10,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ReferenceResponseMapper implements Mapper<ReferenceResponse, Reference> {
 
-	private final ReferenceTypeResponseMapper referenceTypeResponseMapper;
-
 	@Override
 	public ReferenceResponse from(Reference source) {
 		return new ReferenceResponse()
 			.setId(source.getId())
 			.setName(source.getName())
-			.setType(referenceTypeResponseMapper.from(source.getType()))
 			.setCreated(source.getCreatedDateTime())
 			.setCreated(source.getModifiedDateTime());
 	}

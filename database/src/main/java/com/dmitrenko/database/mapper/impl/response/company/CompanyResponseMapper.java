@@ -10,14 +10,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CompanyResponseMapper implements Mapper<CompanyResponse, Company> {
 
-	private final CompanyTypeResponseMapper companyTypeResponseMapper;
 
 	@Override
 	public CompanyResponse from(Company source) {
 		return new CompanyResponse()
 			.setId(source.getId())
 			.setName(source.getName())
-			.setType(companyTypeResponseMapper.from(source.getType()))
 			.setCreated(source.getCreatedDateTime())
 			.setCreated(source.getModifiedDateTime());
 	}

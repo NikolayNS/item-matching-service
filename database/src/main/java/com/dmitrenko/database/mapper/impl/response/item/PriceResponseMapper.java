@@ -10,14 +10,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PriceResponseMapper implements Mapper<PriceResponse, Price> {
 
-	private final CurrencyResponseMapper currencyResponseMapper;
-
 	@Override
 	public PriceResponse from(Price source) {
 		return new PriceResponse()
 			.setId(source.getId())
 			.setCost(source.getCost().toString())
-			.setCurrency(currencyResponseMapper.from(source.getCurrency()))
 			.setCreated(source.getCreatedDateTime())
 			.setModified(source.getModifiedDateTime());
 	}

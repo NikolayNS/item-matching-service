@@ -5,7 +5,6 @@ import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
 import com.dmitrenko.database.dto.request.item.ItemsUpdateRequest;
 import com.dmitrenko.database.dto.response.item.ItemResponse;
 import com.dmitrenko.database.service.domain.item.ItemDomainService;
-import com.dmitrenko.database.service.domain.item.ItemTypeDomainService;
 import com.dmitrenko.privateapi.service.ItemService;
 import com.dmitrenko.privateapi.wrapper.ListResponse;
 import com.dmitrenko.privateapi.wrapper.ObjectResponse;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Service;
 public class ItemServiceImpl implements ItemService {
 
 	private final ItemDomainService itemDomainService;
-	private final ItemTypeDomainService itemTypeDomainService;
 
 	@Override
 	public ObjectResponse<ItemResponse> addItem(ItemRequest request) {

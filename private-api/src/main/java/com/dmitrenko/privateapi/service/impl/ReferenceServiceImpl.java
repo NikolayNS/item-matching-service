@@ -8,7 +8,6 @@ import com.dmitrenko.database.dto.response.reference.ReferenceFieldResponse;
 import com.dmitrenko.database.dto.response.reference.ReferenceResponse;
 import com.dmitrenko.database.service.domain.reference.ReferenceDomainService;
 import com.dmitrenko.database.service.domain.reference.ReferenceFieldDomainService;
-import com.dmitrenko.database.service.domain.reference.ReferenceTypeDomainService;
 import com.dmitrenko.privateapi.service.ReferenceService;
 import com.dmitrenko.privateapi.wrapper.ListResponse;
 import com.dmitrenko.privateapi.wrapper.ObjectResponse;
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Service;
 public class ReferenceServiceImpl implements ReferenceService {
 
 	private final ReferenceDomainService referenceDomainService;
-	private final ReferenceTypeDomainService referenceTypeDomainService;
 	private final ReferenceFieldDomainService referenceFieldDomainService;
 
 	@Override

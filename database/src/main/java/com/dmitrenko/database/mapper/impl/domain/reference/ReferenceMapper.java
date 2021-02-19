@@ -13,7 +13,6 @@ public class ReferenceMapper implements Mapper<Reference, ReferenceRequest> {
 	@Override
 	public Reference from(ReferenceRequest source) {
 		return new Reference()
-			.setName(source.getName())
-			.setType(new ReferenceType(source.getTypeId()));
+			.setName(source.getName());
 	}
 }

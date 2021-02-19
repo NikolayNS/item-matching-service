@@ -13,7 +13,6 @@ public class CompanyMerger implements Merger<Company, CompanyRequest> {
 	@Override
 	public Company merge(Company target, CompanyRequest source) {
 		return target
-			.setName(source.getName())
-			.setType(new CompanyType(source.getTypeId()));
+			.setName(source.getName());
 	}
 }
