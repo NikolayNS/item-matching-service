@@ -10,11 +10,11 @@
 	<version>1.0</version>
 
 	<modules>
-		<module>transfer-api</module>
+		<module>private-api</module>
 		<module>engine-api</module>
+		<module>result-api</module>
 		<module>database</module>
 		<module>engine</module>
-		<module>result-api</module>
 	</modules>
 
 	<parent>
