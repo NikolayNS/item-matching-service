@@ -15,16 +15,16 @@ import javax.persistence.OneToMany;
 import java.util.Collections;
 import java.util.List;
 
-@Entity(name = "TASK_PROPERTY")
+@Entity(name = "task_property")
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
 @ToString(callSuper = true, exclude = "tasks")
 @EqualsAndHashCode(callSuper = true, exclude = "tasks")
-@AttributeOverride(name = "id", column = @Column(name = "TASK_PROPERTY_ID"))
+@AttributeOverride(name = "id", column = @Column(name = "task_property_id"))
 public class TaskProperty extends BaseEntity {
 
-	@Column(name = "PATH", nullable = false)
+	@Column(name = "path", nullable = false)
 	private String path;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "property")

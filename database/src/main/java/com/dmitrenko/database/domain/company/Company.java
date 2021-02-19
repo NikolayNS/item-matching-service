@@ -31,9 +31,9 @@ public class Company extends BaseEntity {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "company_type")
+	@Column(name = "company_type", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private CompanyTypeEnum companyType;
+	private CompanyType companyType;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "company")
 	private List<Item> items = Collections.emptyList();

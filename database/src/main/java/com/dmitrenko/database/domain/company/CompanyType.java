@@ -1,6 +1,6 @@
 package com.dmitrenko.database.domain.company;
 
-public enum CompanyTypeEnum {
+public enum CompanyType {
 	COSTCO("COSTCO"),
 	TARGET("TARGET"),
 	WHOLE_FOODS("WHOLE_FOODS"),
@@ -8,12 +8,12 @@ public enum CompanyTypeEnum {
 
 	private final String value;
 
-	CompanyTypeEnum(String value) {
+	CompanyType(String value) {
 		this.value = value;
 	}
 
-	public static CompanyTypeEnum fromValue(String value) {
-		for (CompanyTypeEnum b : CompanyTypeEnum.values()) {
+	public static CompanyType fromValue(String value) {
+		for (CompanyType b : CompanyType.values()) {
 			if (b.value.equals(value)) {
 				return b;
 			}

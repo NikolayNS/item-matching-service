@@ -34,7 +34,7 @@ public class ReferenceField extends BaseEntity {
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "reference_id")
+	@JoinColumn(name = "reference_id", nullable = false)
 	private Reference reference;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "referenceField")

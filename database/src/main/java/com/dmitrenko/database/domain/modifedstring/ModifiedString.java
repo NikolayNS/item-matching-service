@@ -20,10 +20,10 @@ import javax.persistence.Entity;
 @AttributeOverride(name = "id", column = @Column(name = "modified_string_id"))
 public class ModifiedString extends BaseEntity {
 
-	@Column(name = "modifiable")
+	@Column(name = "modifiable", nullable = false)
 	private String modifiable;
 
-	@Column(name = "modifying")
+	@Column(name = "modifying", nullable = false)
 	private String modifying;
 
 	public ModifiedString(Long id) {

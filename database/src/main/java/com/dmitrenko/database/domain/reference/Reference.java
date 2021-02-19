@@ -30,9 +30,9 @@ public class Reference extends BaseEntity {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "reference_type")
+	@Column(name = "reference_type", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private ReferenceTypeEnum referenceType;
+	private ReferenceType referenceType;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "reference")
 	private List<ReferenceField> fields = Collections.emptyList();

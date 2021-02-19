@@ -38,12 +38,12 @@ public class Item extends BaseEntity {
 	@JoinColumn(name = "price_id")
 	private Price price;
 
-	@Column(name = "item_type")
+	@Column(name = "item_type", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private ItemTypeEnum itemType;
+	private ItemType itemType;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cimpany_id", nullable = false)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 
 	@ManyToOne(fetch = FetchType.LAZY)

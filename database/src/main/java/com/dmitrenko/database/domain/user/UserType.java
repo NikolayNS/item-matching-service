@@ -1,17 +1,17 @@
 package com.dmitrenko.database.domain.user;
 
-public enum UserTypeEnum {
+public enum UserType {
 	ADMIN("ADMIN"),
 	USER("USER");
 
 	private final String value;
 
-	UserTypeEnum(String value) {
+	UserType(String value) {
 		this.value = value;
 	}
 
-	public static UserTypeEnum fromValue(String value) {
-		for (UserTypeEnum b : UserTypeEnum.values()) {
+	public static UserType fromValue(String value) {
+		for (UserType b : UserType.values()) {
 			if (b.value.equals(value)) {
 				return b;
 			}

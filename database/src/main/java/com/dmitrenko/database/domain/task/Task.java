@@ -27,15 +27,15 @@ import javax.persistence.ManyToOne;
 public class Task extends BaseEntity {
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
-	@Column(name = "task_type")
+	@Column(name = "task_type", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private TaskTypeEnum taskType;
+	private TaskType taskType;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "task_property_id")
+	@JoinColumn(name = "task_property_id", nullable = false)
 	private TaskProperty property;
 
 	public Task(Long id) {

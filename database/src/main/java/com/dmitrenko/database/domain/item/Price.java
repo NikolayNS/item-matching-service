@@ -27,12 +27,12 @@ import java.util.List;
 @AttributeOverride(name = "id", column = @Column(name = "PRICE_ID"))
 public class Price extends BaseEntity {
 
-	@Column(name = "COST")
+	@Column(name = "COST", nullable = false)
 	private BigDecimal cost;
 
-	@Column(name = "CURRENCY")
+	@Column(name = "CURRENCY", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private CurrencyEnum currency;
+	private Currency currency;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "price")
 	private List<Item> items = Collections.emptyList();

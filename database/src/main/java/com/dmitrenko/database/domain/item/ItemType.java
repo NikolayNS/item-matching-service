@@ -1,20 +1,20 @@
 package com.dmitrenko.database.domain.item;
 
-public enum CurrencyEnum {
-	USD("USD"),
-	EUR("EUR"),
-	RUB("RUB"),
-	GBP("GBP"),
-	CAD("CAD");
+public enum ItemType {
+	MILK("MILK"),
+	FRESH_MEAT("FRESH_MEAT"),
+	FROZEN_MEAT("FROZEN_MEAT"),
+	ALCOHOL("ALCOHOL"),
+	SOFT_DRINKS("SOFT_DRINKS");
 
 	private final String value;
 
-	CurrencyEnum(String value) {
+	ItemType(String value) {
 		this.value = value;
 	}
 
-	public static CurrencyEnum fromValue(String value) {
-		for (CurrencyEnum b : CurrencyEnum.values()) {
+	public static ItemType fromValue(String value) {
+		for (ItemType b : ItemType.values()) {
 			if (b.value.equals(value)) {
 				return b;
 			}

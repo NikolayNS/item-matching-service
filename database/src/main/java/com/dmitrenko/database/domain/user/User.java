@@ -34,9 +34,9 @@ public class User extends BaseEntity {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "user_type")
+	@Column(name = "user_type", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private UserTypeEnum userType;
+	private UserType userType;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
 	private List<Task> tasks = Collections.emptyList();

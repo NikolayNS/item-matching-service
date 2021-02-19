@@ -1,16 +1,16 @@
 package com.dmitrenko.database.domain.task;
 
-public enum TaskTypeEnum {
+public enum TaskType {
 	DEFAULT("DEFAULT");
 
 	private final String value;
 
-	TaskTypeEnum(String value) {
+	TaskType(String value) {
 		this.value = value;
 	}
 
-	public static TaskTypeEnum fromValue(String value) {
-		for (TaskTypeEnum b : TaskTypeEnum.values()) {
+	public static TaskType fromValue(String value) {
+		for (TaskType b : TaskType.values()) {
 			if (b.value.equals(value)) {
 				return b;
 			}
