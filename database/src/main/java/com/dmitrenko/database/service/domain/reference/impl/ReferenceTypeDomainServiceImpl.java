@@ -1,13 +1,11 @@
 package com.dmitrenko.database.service.domain.reference.impl;
 
-import com.dmitrenko.database.domain.reference.ReferenceType;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
 import com.dmitrenko.database.dto.response.reference.ReferenceTypeResponse;
 import com.dmitrenko.database.exception.EntityAlreadyExistException;
 import com.dmitrenko.database.mapper.impl.domain.reference.ReferenceTypeMapper;
 import com.dmitrenko.database.mapper.impl.domain.reference.ReferenceTypeMerger;
 import com.dmitrenko.database.mapper.impl.response.reference.ReferenceTypeResponseMapper;
-import com.dmitrenko.database.repository.ReferenceTypeRepository;
 import com.dmitrenko.database.service.domain.reference.ReferenceTypeDomainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

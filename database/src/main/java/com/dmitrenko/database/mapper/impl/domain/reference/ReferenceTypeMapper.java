@@ -1,6 +1,5 @@
 package com.dmitrenko.database.mapper.impl.domain.reference;
 
-import com.dmitrenko.database.domain.reference.ReferenceType;
 import com.dmitrenko.database.dto.request.reference.ReferenceTypeRequest;
 import com.dmitrenko.database.mapper.Mapper;
 import lombok.RequiredArgsConstructor;

@@ -1,16 +1,17 @@
-package com.dmitrenko.database.domain.task;
+package com.dmitrenko.database.domain.user;
 
-public enum TaskTypeEnum {
-	DEFAULT("DEFAULT");
+public enum UserTypeEnum {
+	ADMIN("ADMIN"),
+	USER("USER");
 
 	private final String value;
 
-	TaskTypeEnum(String value) {
+	UserTypeEnum(String value) {
 		this.value = value;
 	}
 
-	public static TaskTypeEnum fromValue(String value) {
-		for (TaskTypeEnum b : TaskTypeEnum.values()) {
+	public static UserTypeEnum fromValue(String value) {
+		for (UserTypeEnum b : UserTypeEnum.values()) {
 			if (b.value.equals(value)) {
 				return b;
 			}

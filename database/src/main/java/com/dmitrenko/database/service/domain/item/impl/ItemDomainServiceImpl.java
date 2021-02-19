@@ -1,7 +1,6 @@
 package com.dmitrenko.database.service.domain.item.impl;
 
 import com.dmitrenko.database.domain.item.Item;
-import com.dmitrenko.database.domain.item.ItemType;
 import com.dmitrenko.database.dto.request.item.ItemRequest;
 import com.dmitrenko.database.dto.request.item.ItemsAddRequest;
 import com.dmitrenko.database.dto.request.item.ItemsUpdateRequest;

@@ -1,13 +1,11 @@
 package com.dmitrenko.database.service.domain.item.impl;
 
-import com.dmitrenko.database.domain.item.ItemType;
 import com.dmitrenko.database.dto.request.item.ItemTypeRequest;
 import com.dmitrenko.database.dto.response.item.ItemTypeResponse;
 import com.dmitrenko.database.exception.EntityAlreadyExistException;
 import com.dmitrenko.database.mapper.impl.domain.item.ItemTypeMapper;
 import com.dmitrenko.database.mapper.impl.domain.item.ItemTypeMerger;
 import com.dmitrenko.database.mapper.impl.response.item.ItemTypeResponseMapper;
-import com.dmitrenko.database.repository.ItemTypeRepository;
 import com.dmitrenko.database.service.domain.item.ItemTypeDomainService;
 import com.dmitrenko.database.util.Constant;
 import lombok.RequiredArgsConstructor;

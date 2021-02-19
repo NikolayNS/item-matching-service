@@ -1,6 +1,5 @@
 package com.dmitrenko.database.mapper.impl.response.company;
 
-import com.dmitrenko.database.domain.company.CompanyType;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
 import com.dmitrenko.database.mapper.Mapper;
 import lombok.RequiredArgsConstructor;

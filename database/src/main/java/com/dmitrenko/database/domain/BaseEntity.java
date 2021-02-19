@@ -13,7 +13,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -25,22 +24,20 @@ import static org.hibernate.id.enhanced.SequenceStyleGenerator.CONFIG_SEQUENCE_P
 @ToString()
 @EqualsAndHashCode()
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "sequenceGenerator")
     @GenericGenerator(name = "sequenceGenerator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-        parameters = {@Parameter(name = CONFIG_PREFER_SEQUENCE_PER_ENTITY, value = "true"), @Parameter(name = CONFIG_SEQUENCE_PER_ENTITY_SUFFIX, value = "_SEQ")})
-    @Column(name = "ID")
+        parameters = {@Parameter(name = CONFIG_PREFER_SEQUENCE_PER_ENTITY, value = "true"), @Parameter(name = CONFIG_SEQUENCE_PER_ENTITY_SUFFIX, value = "_seq")})
+    @Column(name = "id")
     protected Long id;
 
     @CreationTimestamp
-    @Column(name = "CREATED", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     protected LocalDateTime createdDateTime;
 
     @UpdateTimestamp
-    @Column(name = "MODIFIED", nullable = false)
+    @Column(name = "modified_at", nullable = false)
     protected LocalDateTime modifiedDateTime;
 }

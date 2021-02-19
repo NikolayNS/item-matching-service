@@ -12,7 +12,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,40 +19,18 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true, exclude = "tasks")
+@EqualsAndHashCode(callSuper = true, exclude = "tasks")
 @AttributeOverride(name = "id", column = @Column(name = "TASK_PROPERTY_ID"))
 public class TaskProperty extends BaseEntity {
-
-	private static final long serialVersionUID = 1L;
 
 	@Column(name = "PATH", nullable = false)
 	private String path;
 
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "property")
 	private List<Task> tasks = Collections.emptyList();
 
 	public TaskProperty(Long id) {
 		this.id = id;
-	}
-
-	@Override
-	public TaskProperty setId(Long id) {
-		this.id = id;
-		return this;
-	}
-
-	@Override
-	public TaskProperty setCreatedDateTime(LocalDateTime createdDateTime) {
-		this.createdDateTime = createdDateTime;
-		return this;
-	}
-
-	@Override
-	public TaskProperty setModifiedDateTime(LocalDateTime modifiedDateTime) {
-		this.modifiedDateTime = modifiedDateTime;
-		return this;
 	}
 }

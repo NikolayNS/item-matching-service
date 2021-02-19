@@ -1,6 +1,5 @@
 package com.dmitrenko.database.mapper.impl.domain.item;
 
-import com.dmitrenko.database.domain.item.ItemType;
 import com.dmitrenko.database.dto.request.item.ItemTypeRequest;
 import com.dmitrenko.database.mapper.Mapper;
 import lombok.RequiredArgsConstructor;

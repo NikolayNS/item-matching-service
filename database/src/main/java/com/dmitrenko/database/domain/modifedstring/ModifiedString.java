@@ -10,44 +10,23 @@ import lombok.experimental.Accessors;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import java.time.LocalDateTime;
 
-@Entity(name = "MODIFIED_STRING")
+@Entity(name = "modified_string")
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@AttributeOverride(name = "id", column = @Column(name = "MODIFIED_STRING_ID"))
+@AttributeOverride(name = "id", column = @Column(name = "modified_string_id"))
 public class ModifiedString extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-
-	@Column(name = "MODIFIABLE")
+	@Column(name = "modifiable")
 	private String modifiable;
 
-	@Column(name = "MODIFYING")
+	@Column(name = "modifying")
 	private String modifying;
 
 	public ModifiedString(Long id) {
 		this.id = id;
-	}
-
-	@Override
-	public ModifiedString setId(Long id) {
-		this.id = id;
-		return this;
-	}
-
-	@Override
-	public ModifiedString setCreatedDateTime(LocalDateTime createdDateTime) {
-		this.createdDateTime = createdDateTime;
-		return this;
-	}
-
-	@Override
-	public ModifiedString setModifiedDateTime(LocalDateTime modifiedDateTime) {
-		this.modifiedDateTime = modifiedDateTime;
-		return this;
 	}
 }

@@ -1,7 +1,6 @@
 package com.dmitrenko.database.mapper.impl.domain.reference;
 
 import com.dmitrenko.database.domain.reference.Reference;
-import com.dmitrenko.database.domain.reference.ReferenceType;
 import com.dmitrenko.database.dto.request.reference.ReferenceRequest;
 import com.dmitrenko.database.mapper.Merger;
 import lombok.RequiredArgsConstructor;

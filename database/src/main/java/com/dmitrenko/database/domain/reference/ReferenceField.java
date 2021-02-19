@@ -15,29 +15,26 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-@Entity(name = "REFERENCE_FIELD")
+@Entity(name = "reference_field")
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-@AttributeOverride(name = "id", column = @Column(name = "REFERENCE_FIELD_ID"))
+@ToString(callSuper = true, exclude = "items")
+@EqualsAndHashCode(callSuper = true, exclude = "items")
+@AttributeOverride(name = "id", column = @Column(name = "reference_field_id"))
 public class ReferenceField extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-
-	@Column(name = "BARCODE", nullable = false)
+	@Column(name = "barcode", nullable = false)
 	private String barcode;
 
-	@Column(name = "NAME", nullable = false)
+	@Column(name = "name", nullable = false)
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "REFERENCE_ID")
+	@JoinColumn(name = "reference_id")
 	private Reference reference;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "referenceField")
@@ -45,23 +42,5 @@ public class ReferenceField extends BaseEntity {
 
 	public ReferenceField(Long id) {
 		this.id = id;
-	}
-
-	@Override
-	public ReferenceField setId(Long id) {
-		this.id = id;
-		return this;
-	}
-
-	@Override
-	public ReferenceField setCreatedDateTime(LocalDateTime createdDateTime) {
-		this.createdDateTime = createdDateTime;
-		return this;
-	}
-
-	@Override
-	public ReferenceField setModifiedDateTime(LocalDateTime modifiedDateTime) {
-		this.modifiedDateTime = modifiedDateTime;
-		return this;
 	}
 }

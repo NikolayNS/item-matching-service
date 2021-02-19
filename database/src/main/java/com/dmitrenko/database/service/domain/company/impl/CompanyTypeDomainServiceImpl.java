@@ -1,13 +1,11 @@
 package com.dmitrenko.database.service.domain.company.impl;
 
-import com.dmitrenko.database.domain.company.CompanyType;
 import com.dmitrenko.database.dto.request.company.CompanyTypeRequest;
 import com.dmitrenko.database.dto.response.company.CompanyTypeResponse;
 import com.dmitrenko.database.exception.EntityAlreadyExistException;
 import com.dmitrenko.database.mapper.impl.domain.company.CompanyTypeMapper;
 import com.dmitrenko.database.mapper.impl.domain.company.CompanyTypeMerger;
 import com.dmitrenko.database.mapper.impl.response.company.CompanyTypeResponseMapper;
-import com.dmitrenko.database.repository.CompanyTypeRepository;
 import com.dmitrenko.database.service.domain.company.CompanyTypeDomainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

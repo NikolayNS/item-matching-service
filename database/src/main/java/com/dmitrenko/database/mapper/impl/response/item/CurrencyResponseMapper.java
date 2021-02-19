@@ -1,6 +1,5 @@
 package com.dmitrenko.database.mapper.impl.response.item;
 
-import com.dmitrenko.database.domain.item.Currency;
 import com.dmitrenko.database.dto.response.item.CurrencyResponse;
 import com.dmitrenko.database.mapper.Mapper;
 import lombok.RequiredArgsConstructor;

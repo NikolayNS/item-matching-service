@@ -13,67 +13,48 @@ import lombok.experimental.Accessors;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.time.LocalDateTime;
 
-@Entity(name = "ITEM")
+@Entity(name = "item")
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@AttributeOverride(name = "id", column = @Column(name = "ITEM_ID"))
+@AttributeOverride(name = "id", column = @Column(name = "item_id"))
 public class Item extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-
-	@Column(name = "BARCODE")
+	@Column(name = "barcode")
 	private String barcode;
 
-	@Column(name = "NAME", nullable = false)
+	@Column(name = "name", nullable = false)
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PRICE_ID")
+	@JoinColumn(name = "price_id")
 	private Price price;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TYPE_ID", nullable = false)
-	private ItemType type;
+	@Column(name = "item_type")
+	@Enumerated(value = EnumType.STRING)
+	private ItemTypeEnum itemType;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "COMPANY_ID", nullable = false)
+	@JoinColumn(name = "cimpany_id", nullable = false)
 	private Company company;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "BRAND_ID")
+	@JoinColumn(name = "brand_id")
 	private BrandName brandName;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "REFERENCE_FIELD_ID")
+	@JoinColumn(name = "reference_field_id")
 	private ReferenceField referenceField;
 
 	public Item(Long id) {
 		this.id = id;
-	}
-
-	@Override
-	public Item setId(Long id) {
-		this.id = id;
-		return this;
-	}
-
-	@Override
-	public Item setCreatedDateTime(LocalDateTime createdDateTime) {
-		this.createdDateTime = createdDateTime;
-		return this;
-	}
-
-	@Override
-	public Item setModifiedDateTime(LocalDateTime modifiedDateTime) {
-		this.modifiedDateTime = modifiedDateTime;
-		return this;
 	}
 }
