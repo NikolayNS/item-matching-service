@@ -1,6 +1,6 @@
-package com.dmitrenko.engine.api.controller;
+package com.dmitrenko.task.api.controller;
 
-import com.dmitrenko.engine.api.service.EngineApiService;
+import com.dmitrenko.task.api.service.EngineApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
