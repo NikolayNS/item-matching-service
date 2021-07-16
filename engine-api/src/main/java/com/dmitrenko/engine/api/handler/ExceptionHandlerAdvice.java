@@ -1,7 +1,7 @@
-package com.dmitrenko.task.api.handler;
+package com.dmitrenko.engine.api.handler;
 
 import com.dmitrenko.database.exception.InvalidRequestException;
-import com.dmitrenko.task.api.wrapper.ErrorResponse;
+import com.dmitrenko.engine.api.wrapper.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

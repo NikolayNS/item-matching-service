@@ -11,7 +11,7 @@
 
 	<modules>
 		<module>private-api</module>
-		<module>task-api</module>
+		<module>engine-api</module>
 		<module>result-api</module>
 		<module>database</module>
 		<module>engine</module>

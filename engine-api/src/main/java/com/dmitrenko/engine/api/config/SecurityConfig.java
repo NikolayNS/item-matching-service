@@ -1,4 +1,4 @@
-package com.dmitrenko.task.api.config;
+package com.dmitrenko.engine.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

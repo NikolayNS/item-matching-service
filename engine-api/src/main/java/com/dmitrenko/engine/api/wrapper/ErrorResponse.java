@@ -1,4 +1,4 @@
-package com.dmitrenko.task.api.wrapper;
+package com.dmitrenko.engine.api.wrapper;
 
 import lombok.Value;
 
