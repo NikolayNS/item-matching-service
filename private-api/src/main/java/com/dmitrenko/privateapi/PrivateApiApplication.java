@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.dmitrenko.transfer.api", "com.dmitrenko.database"})
+@ComponentScan(basePackages = {"com.dmitrenko.private.api", "com.dmitrenko.database"})
 public class PrivateApiApplication {
 
 	public static void main(String[] args) {

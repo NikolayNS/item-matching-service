@@ -16,6 +16,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,6 +27,7 @@ import java.util.List;
 @ToString(callSuper = true, exclude = "tasks")
 @EqualsAndHashCode(callSuper = true, exclude = "tasks")
 @AttributeOverride(name = "id", column = @Column(name = "user_id"))
+@Table(name = "app_user")
 public class User extends BaseEntity {
 
 	@Column(name = "name", nullable = false)
